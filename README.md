@@ -4,9 +4,9 @@
 
 | Nombre | Github | Email |
 | :----- | :----- | :------- |
-| X | X | X |
-| X | X | X |
-| X | X | X |
+| ALEJANDRO IGNACIO QUIÑONES | X | aiquinones@uc.cl |
+| FELIPE ANDRÉS HAASE | X | fahaase@uc.cl |
+| TOMAS SANTIAGO SUAREZ | X | tssuarez@uc.cl |
 
 ## Product Owner
 | Nombre | Github | Email |
