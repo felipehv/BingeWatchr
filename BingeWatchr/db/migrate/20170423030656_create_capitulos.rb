@@ -3,9 +3,7 @@ class CreateCapitulos < ActiveRecord::Migration[5.0]
     create_table :capitulos do |t|
       t.string :title, null: false, default: ""
       t.integer :number, null: false
-      t.integer :id_serie, null: false
-      t.references(:id) :id_serie
-      t.belongs_to(:series, foreign_key: true)
+      t.references :series, foreign_key: { to_table: :series }
       t.timestamps
     end
   end
