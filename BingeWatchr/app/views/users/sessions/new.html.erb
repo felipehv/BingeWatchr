@@ -1,3 +1,89 @@
+<style>
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 10%;height: 100%;}
+.col-2 {width: 90%;height: 100%;}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 80px;
+    background-color: #6087C5;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #4875B7;
+}
+
+
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+p {
+  font-size: 20px;
+}
+p.small {
+  font-size: 16px;
+}
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+  color: #18BC9C;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+</style>
+<body style="margin: 0px">
+<div class="container">
+  <div style=" height: 120px; background-color:#222E59 " >
+  <div align="center" class="col-2" style="vertical-align: middle; background-color:#222E59">
+  <img src="/images/BingeWatchr.png" alt="BingeWatchr"  style='display:inline-block; width: 30%;  object-fit: contain'/>
+  </div>
+  <div align="right" class="col-1" style="vertical-align: middle; background-color:#222E59">
+  <% if user_signed_in? %>
+    <%= button_to('Logout', destroy_user_session_path, :method => :delete)%>
+    <%= button_to('Perfíl', destroy_user_session_path, :method => :delete)%>
+  <% else %>
+  <%= button_to('Login', new_user_session_path, :method => "get")  %>  
+<% end %>
+</div>
+</div>
+</div>
+</body>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +110,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+
