@@ -1,3 +1,37 @@
+<style>
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 10%;height: 100%;}
+.col-2 {width: 90%;height: 100%;}
+</style>
+<body style="margin: 0px">
+<div class="container">
+  <div style=" height: 120px; background-color:#222E59 " >
+  <div align="center" class="col-2" style="vertical-align: middle; background-color:#222E59">
+  <img src="/images/BingeWatchr.png" alt="BingeWatchr"  style='display:inline-block; width: 30%;  object-fit: contain'/>
+  </div>
+  <div align="right" class="col-1" style="vertical-align: middle; background-color:#222E59">
+  <% if user_signed_in? %>
+    <%= button_to('Logout', destroy_user_session_path, :method => :delete)%>
+    <%= button_to('Perfíl', destroy_user_session_path, :method => :delete)%>
+  <% else %>
+  <%= button_to('Login', new_user_session_path, :method => "get")  %>  
+<% end %>
+</div>
+</div>
 <h2>Edit Post</h2>
 
 <%= render "posts/form" %>
+<%= button_to "Home", root_path, :method => "get" %>
+</div>
+</body>
