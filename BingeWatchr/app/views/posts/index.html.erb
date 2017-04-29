@@ -1,4 +1,15 @@
 <div class="container">
+  <div align="center">
+  <h1>BingeWatchr</h1>
+  </div>
+  <div align="right">
+  <% if user_signed_in? %>
+    <%= button_to('Logout', destroy_user_session_path, :method => :delete)%>
+    <%= button_to('Perfíl', destroy_user_session_path, :method => :delete)%>        
+  <% else %>
+  <%= button_to('Login', new_user_session_path, :method => "get")  %>  
+  </div>
+<% end %>
   <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
     <% @posts.each do |post| %>
     <div class="col-xs-12">
@@ -12,7 +23,7 @@
       </div>
 
       <div class="text-center">
-        <%= link_to "READ MORE", post_path(post) %>
+        <%= button_to "READ MORE", post_path(post), :method => "get" %>
       </div>
       <br>
     </div>
