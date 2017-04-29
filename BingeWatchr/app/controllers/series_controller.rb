@@ -15,6 +15,13 @@ class SeriesController < ApplicationController
   # GET /series/new
   def new
     @series = Serie.new
+    @uid = current_user.id
+    
+  end
+
+  def new0
+    @uid = current_user.id
+    @tipos = Tipo.all
   end
 
   # GET /series/1/edit
@@ -24,17 +31,7 @@ class SeriesController < ApplicationController
   # POST /series
   # POST /series.json
   def create
-    @series = Serie.new(series_params)
-
-    respond_to do |format|
-      if @series.save
-        format.html { redirect_to @series, notice: 'Serie was successfully created.' }
-        format.json { render :show, status: :created, location: @series }
-      else
-        format.html { render :new }
-        format.json { render json: @series.errors, status: :unprocessable_entity }
-      end
-    end
+    Serie.create(name: params[:name], year: params[:year], user_id: params[:user_id], tipo_id: params[:tipo_id])
   end
 
   # PATCH/PUT /series/1
