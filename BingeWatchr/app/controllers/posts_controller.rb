@@ -4,11 +4,16 @@ class PostsController < ApplicationController
   # Index action to render all posts
   def index
     @posts = Post.all
+    if user_signed_in?
+      @sons = User.where(parent_id: current_user.id).all
+
+    end
   end
 
   # New action for creating post
   def new
     @post = Post.new
+
   end
 
   # Create action saves the post into database

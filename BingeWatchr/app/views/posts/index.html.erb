@@ -76,7 +76,6 @@ h6 {
   <div align="right" class="col-1" style="vertical-align: middle; background-color:#222E59">
   <% if user_signed_in? %>
     <%= button_to('Logout', destroy_user_session_path, :method => :delete)%>
-    <%= button_to('Perfíl', destroy_user_session_path, :method => :delete)%>
   <% else %>
   <%= button_to('Login', new_user_session_path, :method => "get")  %>  
 <% end %>
@@ -102,6 +101,20 @@ h6 {
     </div>
     <% end %>
   </div>
+  <% if user_signed_in? %>
+  <%= form_tag("/users/createson", method: "post") do %>
+  <%= label_tag(:email, "Email hijo") %>
+  <%= email_field_tag(:email) %>
+
+  <%= label_tag(:password, "Password hijo") %>
+  <%= text_field_tag(:password) %>
+
+  <%= hidden_field_tag(:parent_id, @pid) %>
+
+
+  <%= submit_tag("Crear hijo") %>
+  <% end %>
+  <% end %>
 </div>
 </body>
 
