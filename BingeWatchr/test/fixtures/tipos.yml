@@ -2,12 +2,6 @@
 
 one:
   name: MyString
-  year: 1
-  user: one
-  tipo: one
 
 two:
   name: MyString
-  year: 1
-  user: two
-  tipo: two
