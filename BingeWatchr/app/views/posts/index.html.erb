@@ -101,6 +101,20 @@ h6 {
     </div>
     <% end %>
   </div>
+  <% if user_signed_in? %>
+  <%= form_tag("/users/createson", method: "post") do %>
+  <%= label_tag(:email, "Email hijo") %>
+  <%= email_field_tag(:email) %>
+
+  <%= label_tag(:password, "Password hijo") %>
+  <%= text_field_tag(:password) %>
+
+  <%= hidden_field_tag(:parent_id, @pid) %>
+
+
+  <%= submit_tag("Crear hijo") %>
+  <% end %>
+  <% end %>
 </div>
 </body>
 
