@@ -21,6 +21,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field" value = "<%= 0 %>" >
+    <%= f.label :parent_id %><br />
+    <%= f.collection_select :id, User.all, :id, :id , default: 0%>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
