@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @capitulo.name %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @capitulo.serie %>
+</p>
+
+<%= link_to 'Edit', edit_capitulo_path(@capitulo) %> |
+<%= link_to 'Back', capitulos_path %>

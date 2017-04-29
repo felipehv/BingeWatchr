@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       ## Pico
 
       t.boolean :admin
+      t.integer :parent_id # id del padre (-1 si no tiene)
 
 
       t.timestamps null: false
