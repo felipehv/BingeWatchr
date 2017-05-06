@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :year %>
-    <%= f.association :user %>
+    <%= f.hidden_field_tag :user, @uid %>
     <%= f.association :tipo %>
   </div>
 
