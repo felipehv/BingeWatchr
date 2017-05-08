@@ -21,6 +21,9 @@
 	text-align: left;
     
 }
+.container{
+	margin: 50px
+}
 .col-xs-12{
 	display:inline-block;
     width: 250px;
