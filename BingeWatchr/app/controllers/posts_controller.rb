@@ -3,11 +3,8 @@ class PostsController < ApplicationController
 
   # Index action to render all posts
   def index
-    @posts = Post.all
-    if user_signed_in?
-      @sons = User.where(parent_id: current_user.id).all
-
-    end
+    @posts = Post.all.sort_by(&:created_at).reverse
+    
   end
 
   # New action for creating post
