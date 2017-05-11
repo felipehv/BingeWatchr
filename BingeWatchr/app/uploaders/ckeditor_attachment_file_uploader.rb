@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'carrierwave'
+require 'CarrierWave'
 
 class CkeditorAttachmentFileUploader < CarrierWave::Uploader::Base
   include Ckeditor::Backend::CarrierWave
