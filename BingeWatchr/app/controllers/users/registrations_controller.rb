@@ -13,6 +13,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @pid = current_user.id
   end
 
+  def profile
+    @users1 = User.all
+    
+  end
+
   def create_son
     User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
   end
