@@ -1,5 +1,5 @@
 <h1> Editar cuenta asociada </h1>
-<% if current_user.id == @son.id %>
+<% if current_user.id == @son.parent_id %>
 
 <%= form_tag("/users/edit_son", method: "post") do %>
   <%= @son.email %>
