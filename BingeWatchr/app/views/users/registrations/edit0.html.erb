@@ -1,31 +1,31 @@
 <h1> Editar cuenta asociada </h1>
 <% if current_user.id == @son.parent_id %>
 
-<%= form_tag("/users/edit_son", method: "post") do %>
-  <%= @son.email %>
+  <%= form_tag("/users/edit_son", method: "post") do %>
+    <%= @son.email %>
 
-  <%= label_tag(:password, "Password hijo") %>
-  <%= password_field_tag(:password) %>
+    <%= label_tag(:password, "Password hijo") %>
+    <%= password_field_tag(:password) %>
 
+
+    <%= hidden_field_tag(:id, @son.id) %>
+    <%= hidden_field_tag(:email, @son.email) %>
+    <%= hidden_field_tag(:parent_id, current_user.id) %>
+
+
+
+    <%= submit_tag("Crear hijo") %>
+
+
+  <% end %>o
+
+  <%= form_tag("/users/delete_son", method: "post") do %>
 
   <%= hidden_field_tag(:id, @son.id) %>
-  <%= hidden_field_tag(:email, @son.email) %>
-  <%= hidden_field_tag(:parent_id, current_user.id) %>
+  <%= submit_tag("Borrar cuenta asociada") %>
 
 
-
-  <%= submit_tag("Crear hijo") %>
-
-
-<% end %>
-
-<%= form_tag("/users/delete_son", method: "post") do %>
-
-<%= hidden_field_tag(:id, @son.id) %>
-<%= submit_tag("Borrar cuenta asociada") %>
-
-
-<%= end %>
+  <% end %>
 
 <%else%>
 
