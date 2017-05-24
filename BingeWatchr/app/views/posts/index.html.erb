@@ -24,23 +24,7 @@
     
   </div>
   
-    <% if user_signed_in? %>
-        <div class="col-xs-12">
-        <%= form_tag("/users/createson", method: "post") do %>
-          <%= label_tag(:email, "Email hijo") %>
-          <%= email_field_tag(:email) %>
-
-          <%= label_tag(:password, "Password hijo") %>
-          <%= text_field_tag(:password) %>
-
-          <%= hidden_field_tag(:parent_id, current_user.id) %>
-
-
-          <%= submit_tag("Crear hijo") %>
-        <% end %>
     
-    </div>
-  <% end %>
   
 
 </div>
