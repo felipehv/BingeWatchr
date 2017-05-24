@@ -15,10 +15,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile
     @users1 = User.all
-    
+
   end
 
   def create_son
+    User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+  end
+
+  def deleteson
+    User.find(params[:id]).destroy
+  end
+
+  def editson
+    User.find(params[:id]).destroy
     User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
   end
 
@@ -55,7 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :admin, :parent_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :admin, :parent_id, :id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

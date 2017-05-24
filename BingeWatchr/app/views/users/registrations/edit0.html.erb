@@ -1,0 +1,26 @@
+<h1> Editar cuenta asociada </h1>
+<%= form_tag("/users/editson", method: "post") do %>
+  <%= @son.email %>
+
+  <%= label_tag(:password, "Password hijo") %>
+  <%= password_field_tag(:password) %>
+
+
+  <%= hidden_field_tag(:id, @son.id) %>
+  <%= hidden_field_tag(:email, @son.email) %>
+  <%= hidden_field_tag(:parent_id, current_user.id) %>
+
+
+
+  <%= submit_tag("Crear hijo") %>
+
+
+<% end %>
+
+<%= form_tag("/users/deleteson", method: "post") do %>
+
+<%= hidden_field_tag(:parent_id, @son.id) %>
+<%= submit_tag("Borrar cuenta asociada") %>
+
+
+<%= end %>
