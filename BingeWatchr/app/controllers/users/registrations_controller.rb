@@ -13,6 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @pid = current_user.id
   end
 
+  def edit0
+    @son = User.find(params[:id])
+  end
+
   def profile
     @users1 = User.all
 
@@ -22,11 +26,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
   end
 
-  def deleteson
+  def delete_son
     User.find(params[:id]).destroy
   end
 
-  def editson
+  def edit_son
     User.find(params[:id]).destroy
     User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
   end
