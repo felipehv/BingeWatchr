@@ -13,6 +13,7 @@
             <div class="col-xs-12">
               <div class="text-center">
                 <h3><%= user.email %></h3>
+                <%= button_to "Editar", "/users/edit_son/#{user.id}", :method => "get" %>
 
                 
               </div>
@@ -39,6 +40,11 @@
 
           <%= submit_tag("Crear hijo") %>
         <% end %>
+    
+    </div>
+    <h2>Modificar cuenta</h2>
+      <div class="col-xs-12">
+         <%= button_to 'Editar Cuenta', '/users/edit', {:method => :get , :style => "vertical-align: middle; text-align: center", :class => 'buttonTo' } %>
     
     </div>
   <% else %>

@@ -4,7 +4,11 @@
   </div>
   <div align="right" class="col-1" style="vertical-align: middle; background-color:#222E59;height:100%">
   <% if user_signed_in? %>
-    <%= button_to 'Logout', destroy_user_session_path, {:method => :delete , :style => "vertical-align: middle; text-align: center", :class => 'buttonTo' } %>
+    <% if current_page?('/profile') %>
+      <%= button_to 'Logout', destroy_user_session_path, {:method => :delete , :style => "vertical-align: middle; text-align: center", :class => 'buttonTo' } %>
+    <% else %>
+      <%= button_to 'Perfíl', '/profile', {:method => :get , :style => "vertical-align: middle; text-align: center", :class => 'buttonTo' } %>
+    <% end %>
   <% else %>
     <%= button_to('Login', new_user_session_path, :method => "get", :html => { :style => 'padding: 0px 0px; margin: 0px 0;vertical-align: middle; text-align: center'})  %>  
   <% end %>
