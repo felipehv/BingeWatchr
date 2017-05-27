@@ -16,10 +16,13 @@ ActiveRecord::Schema.define(version: 20170429201214) do
   enable_extension "plpgsql"
 
   create_table "capitulos", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.integer  "serie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "episode"
+    t.integer  "season"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["serie_id"], name: "index_capitulos_on_serie_id", using: :btree
   end
 
@@ -44,13 +47,12 @@ ActiveRecord::Schema.define(version: 20170429201214) do
 
   create_table "series", force: :cascade do |t|
     t.string   "name"
+    t.string   "creator"
+    t.string   "maturity"
     t.integer  "year"
-    t.integer  "user_id"
-    t.integer  "tipo_id"
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tipo_id"], name: "index_series_on_tipo_id", using: :btree
-    t.index ["user_id"], name: "index_series_on_user_id", using: :btree
   end
 
   create_table "tipos", force: :cascade do |t|
@@ -71,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170429201214) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "admin"
-    t.integer  "parent_id"
+    t.integer  "user"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -79,6 +81,4 @@ ActiveRecord::Schema.define(version: 20170429201214) do
   end
 
   add_foreign_key "capitulos", "series", column: "serie_id"
-  add_foreign_key "series", "tipos"
-  add_foreign_key "series", "users"
 end

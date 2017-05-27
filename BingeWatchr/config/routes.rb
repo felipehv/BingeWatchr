@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   devise_scope :user do get '/users/newson' => 'users/registrations#new0' end
   devise_scope :user do post '/users/createson' => 'users/registrations#create_son' end
 
+  get 'series' => 'seires#index'
+
+  get 'series/:id' => 'series#show', as: :tag
+
+
   resources :posts
 end

@@ -1,24 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @series.name %>
-</p>
+<div align="center">
+  <%= image_tag @serie.image %>
+  <h1><%= @serie.name %></h1>
+  <h3>by <%= @serie.creator %></h3>
+  <h3>Rated <%= @serie.maturity %></h3>
+  <h3><%= @serie.year %></h3>
 
-<p>
-  <strong>Year:</strong>
-  <%= @series.year %>
-</p>
+  <%= link_to 'Edit', edit_series_path(@serie) %>
+  <%= link_to 'Back', 'http://localhost:3000/series'%>
 
-<p>
-  <strong>User:</strong>
-  <%= @series.user %>
-</p>
+</div>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @series.tipo %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_series_path(@series) %> |
-<%= link_to 'Back', series_path %>
