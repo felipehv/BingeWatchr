@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <body style="margin: 0px">
-<div class="container" style="margin: 50px">
+<div class="container" >
   
 
   <div class="row">
@@ -24,24 +24,7 @@
     
   </div>
   
-  <% if user_signed_in? %>
-    <div class="col-xs-12">
-    <%= form_tag("/users/createson", method: "post") do %>
-      <%= label_tag(:email, "Email hijo") %>
-      <br></br>
-      <%= email_field_tag(:email) %>
-      <br></br>
-      <%= label_tag(:password, "Password hijo") %>
-      <br></br>
-      <%= text_field_tag(:password) %>
-
-      <%= hidden_field_tag(:parent_id, @pid) %>
-
-
-      <%= submit_tag("Crear hijo") %>
-    <% end %>
-    </div>
-  <% end %>
+    
   
 
 </div>

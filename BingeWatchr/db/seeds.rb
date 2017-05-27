@@ -40,3 +40,6 @@ end
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
 end
+
+
+User.create(email: "admin@uc.cl", password: "123456", admin: 1)

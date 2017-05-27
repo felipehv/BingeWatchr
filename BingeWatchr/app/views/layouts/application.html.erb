@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head >
     <title>BingeWatchr</title>
     <%= csrf_meta_tags %>
 
@@ -8,8 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="margin: 0px">
     <%= render "layouts/header" %>
-	<%=yield %>
+  <div style="margin: 50px"><%=yield %></div>
+	
   </body>
 </html>
