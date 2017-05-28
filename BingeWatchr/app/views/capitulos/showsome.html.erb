@@ -1,0 +1,26 @@
+<p id="notice" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
+
+<head>
+  <h1>Capitulos de <%=@serie.name %></h1>
+</head>
+
+<body style="margin: 0px">
+
+<div class="capitulos">
+  <div class="container">
+    <div class="cards row">
+      <% @capitulos.each do |episode| %>
+          <div class="card col-xs-12">
+            <h1><%= episode.title %></h1>
+            <p>Episodio <%= episode.episode%>, Temporada <%= episode.season%></p></br>
+            <%= link_to 'Learn More', capitulo_path(episode) %>
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>
+
+
+<%= link_to 'New Episode', new_series_path %>

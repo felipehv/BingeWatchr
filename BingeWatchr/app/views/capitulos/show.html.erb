@@ -2,12 +2,25 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @capitulo.name %>
+  <%= @capitulo.title %>
 </p>
 
+<p> <%= @capitulo.serie.name%> : <%= @capitulo.season%>x<%= @capitulo.episode%>
+</p>
 <p>
-  <strong>Serie:</strong>
-  <%= @capitulo.serie %>
+  <strong>Descripcion:</strong>
+  <%= @capitulo.description%>
+</p>
+<p>
+  <% if @capitulo.seen then%>
+      <strong>Visto</strong>
+      <%= link_to 'Marcar como no visto', edit_capitulo_path(@capitulo) %> |
+
+<% else %>
+      <strong>No visto</strong>
+      <%= link_to 'Marcar como visto', edit_capitulo_path(@capitulo) %> |
+
+<%end%>
 </p>
 
 <%= link_to 'Edit', edit_capitulo_path(@capitulo) %> |

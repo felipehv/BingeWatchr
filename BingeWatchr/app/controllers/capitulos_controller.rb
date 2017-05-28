@@ -12,6 +12,11 @@ class CapitulosController < ApplicationController
   def show
   end
 
+  def showsome
+    @serie = Serie.find_by_id(params[:id])
+    @capitulos = @serie.capitulos
+  end
+
   # GET /capitulos/new
   def new
     @capitulo = Capitulo.new
@@ -19,6 +24,7 @@ class CapitulosController < ApplicationController
 
   # GET /capitulos/1/edit
   def edit
+    @capitulo = Capitulo.find_by_id(params[:id])
   end
 
   # POST /capitulos
@@ -40,15 +46,14 @@ class CapitulosController < ApplicationController
   # PATCH/PUT /capitulos/1
   # PATCH/PUT /capitulos/1.json
   def update
-    respond_to do |format|
+    @capitulo = Capitulo.find_by_id(params[:id])
+
       if @capitulo.update(capitulo_params)
-        format.html { redirect_to @capitulo, notice: 'Capitulo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @capitulo }
+        redirect_to capitulos_path, :notice => 'Capitulo was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @capitulo.errors, status: :unprocessable_entity }
-      end
+        render "edit"
     end
+
   end
 
   # DELETE /capitulos/1

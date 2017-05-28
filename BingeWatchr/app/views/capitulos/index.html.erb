@@ -14,8 +14,8 @@
   <tbody>
     <% @capitulos.each do |capitulo| %>
       <tr>
-        <td><%= capitulo.name %></td>
-        <td><%= capitulo.serie %></td>
+        <td><%= capitulo.title %></td>
+        <td><%= capitulo.serie.name %></td>
         <td><%= link_to 'Show', capitulo %></td>
         <td><%= link_to 'Edit', edit_capitulo_path(capitulo) %></td>
         <td><%= link_to 'Destroy', capitulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
