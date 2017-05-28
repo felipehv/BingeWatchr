@@ -33,9 +33,6 @@ tipos_list = [
     ["Telenovelas", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
 ]
 
-Post.destroy_all
-
-
 series_list = [
     ["Game of Thrones", "D.B. Weiss, David Benioff", "14+", 2011,
      "https://static.posters.cz/image/750/poster/game-of-thrones-juego-de-tronos-winter-is-coming-i18529.jpg",
@@ -60,26 +57,12 @@ admin_list = [
      DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1, 1]
 ]
 
-
 posts_list.each do |title, body, created, updated|
   Post.create( title: title, body: body, created_at: created, updated_at: updated)
 end
-Tipo.destroy_all
+
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
-
-end
-
-end
-
-User.destroy_all
-User.create(email: "admin@uc.cl", password: "123456", admin: 1)
-
-end
-
-
-User.create(email: "admin@uc.cl", password: "123456", admin: 1)
-
 end
 
 series_list.each do |name, creator, maturity, year, image, created, updated, user, tipo|
