@@ -19,13 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile
-
-    MailerMailer.mail1(current_user)
-    if user_signed_in?
-      @users1 = User.where(parent_id: current_user.id).all
-      if current_user.admin
-        @users2 = User.all
-      end
+    @users1 = User.where(parent_id: current_user.id).all
+    if current_user.admin
+      @users2 = User.all
     end
 
   end
