@@ -19,9 +19,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def profile
+<<<<<<< HEAD
 
+=======
     MailerMailer.mail1(current_user)
-
+>>>>>>> 8d3e3bf4e25cf3bfc45ef1c2903c34744cbe8c24
     @users1 = User.where(parent_id: current_user.id).all
     if current_user.admin
       @users2 = User.all

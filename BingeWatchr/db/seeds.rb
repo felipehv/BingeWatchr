@@ -39,6 +39,7 @@ end
 Tipo.destroy_all
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 end
 =======
@@ -47,3 +48,9 @@ end
 User.destroy_all
 User.create(email: "admin@uc.cl", password: "123456", admin: 1)
 >>>>>>> Stashed changes
+=======
+end
+
+
+User.create(email: "admin@uc.cl", password: "123456", admin: 1)
+>>>>>>> 8d3e3bf4e25cf3bfc45ef1c2903c34744cbe8c24
