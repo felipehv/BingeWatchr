@@ -44,7 +44,7 @@
 
     </div>
 
-    <%if current_user.admin%>
+    <%if current_user.admin %>
       <h2> Editar usuarios (Admin Only)</h2>
       <%@users2.each do |user|%>
         <%=user.email%>
