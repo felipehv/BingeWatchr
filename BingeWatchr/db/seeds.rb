@@ -95,4 +95,8 @@ capitulos = [
 capitulos.each do |title, seen, serie, episode, season, description, created, updated|
   Capitulo.create(title: title, seen: seen, serie: serie, episode: episode, season: season,
                   description: description, created_at: created, updated_at: updated)
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> c1e93344156441f1bd6f6fb5416b55549a789acb
