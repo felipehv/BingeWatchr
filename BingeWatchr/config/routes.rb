@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   get 'series/:id' => 'series#show', as: :tag
 
+  get 'series/:id/capitulos' => 'capitulos#showsome'
+
+  put 'capitulos/:id', to: 'capitulos#update'
 
   resources :posts
 end

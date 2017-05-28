@@ -12,6 +12,11 @@ class CapitulosController < ApplicationController
   def show
   end
 
+  def showsome
+    @serie = Serie.find_by_id(params[:id])
+    @capitulos = @serie.capitulos
+  end
+
   # GET /capitulos/new
   def new
     @capitulo = Capitulo.new

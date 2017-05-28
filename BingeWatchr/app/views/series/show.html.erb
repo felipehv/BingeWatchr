@@ -7,8 +7,9 @@
   <h3>Rated <%= @serie.maturity %></h3>
   <h3><%= @serie.year %></h3>
 
+  <%= link_to "Capitulo", controller: "capitulos", action: "showsome", id: @serie %>
   <%= link_to 'Edit', edit_series_path(@serie) %>
-  <%= link_to 'Back', 'http://localhost:3000/series'%>
+  <%= link_to 'Destroy', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>
 

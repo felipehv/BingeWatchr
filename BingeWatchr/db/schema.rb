@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170429201214) do
     t.integer  "episode"
     t.integer  "season"
     t.string   "description"
+    t.boolean  "seen"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["serie_id"], name: "index_capitulos_on_serie_id", using: :btree
