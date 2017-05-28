@@ -13,12 +13,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @pid = current_user.id
   end
 
+  # GET /users/edit_user/<id>
   def edit0
-    @son = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def profile
-
     @users1 = User.where(parent_id: current_user.id).all
     if current_user.admin
       @users2 = User.all
@@ -27,17 +27,42 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_son
-    User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+    # @user = User.new(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+    # if @user.save
+    #   flash[:success] = "Usuario creado!"
+    #   redirect_to root
+    # end
+    if current_user.parent_id != nil
+      @user = User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+    end
   end
 
-  def delete_son
-    User.find(params[:id]).destroy
+  # POST /users/delete_user
+  def delete_user
+    if current_user.id == params[:id] or current_user.admin
+      User.find(params[:id]).destroy
+    end
   end
 
-  def edit_son
-    User.find(params[:id]).destroy
-    User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+  # POST /users/edit_user
+  def edit_user
+    if current_user.id == params[:id] or current_user.admin
+      @user = User.find(params[:id]).destroy
+      User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
+    end
   end
+
+  # POST /create_admin
+  def create_admin
+    if current_user.admin
+      User.create(email: params[:email], password: params[:password], admin: 1)
+    end
+  end
+
+
+
+
+
 
   # POST /resource
   def create

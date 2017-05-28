@@ -32,11 +32,18 @@ tipos_list = [
     ["Música", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
     ["Telenovelas", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
 ]
-
+Post.destroy_all
 posts_list.each do |title, body, created, updated|
   Post.create( title: title, body: body, created_at: created, updated_at: updated)
 end
-
+Tipo.destroy_all
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
+<<<<<<< Updated upstream
 end
+=======
+end
+
+User.destroy_all
+User.create(email: "admin@uc.cl", password: "123456", admin: 1)
+>>>>>>> Stashed changes
