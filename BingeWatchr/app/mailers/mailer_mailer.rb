@@ -3,7 +3,8 @@ class MailerMailer < ApplicationMailer
     @users = users
     @msg = msg
     @users.each do |user|
-      mail(to: @user.email, subject: 'Nuevo contenido en BingeWatchrs !')
+      @user = user
+      mail(to: user.email, subject: 'Nuevo contenido en BingeWatchrs !')
     end
   end
 end
