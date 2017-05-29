@@ -11,7 +11,11 @@
       <div class="cards row">
         <% @series.each do |series| %>
             <div class="card col-xs-12">
-              <%= link_to image_tag(series.image), series_path(series) %>
+              <% if series.image != nil %>
+                <%= link_to image_tag(series.image), series_path(series) %>
+              <% else %>
+                <%= link_to image_tag("/images/BW_placeholder.jpg"), series_path(series) %>
+              <% end %>
               <h1><%= series.name %></h1>
 
             </div>

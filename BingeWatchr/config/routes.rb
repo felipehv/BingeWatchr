@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   devise_scope :user do post '/users/create_admin' => 'users/registrations#create_admin' end
 
 
-  get '/series' => 'series#index'
+  get '/series' => 'series#index', as: :lista_series
+  post '/series' => 'series#create', as: :create_new_series
 
   get '/series/:id' => 'series#show', as: :tag
 

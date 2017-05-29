@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div align="center">
-  <%= image_tag @serie.image %>
+  
+  <% if @serie.image != nil %>
+    <%= image_tag @serie.image %>
+  <% else %>
+    <%= link_to image_tag("/images/BW_placeholder.jpg") %>
+  <% end %>
   <h1><%= @serie.name %></h1>
   <h3>by <%= @serie.creator %></h3>
   <h3>Rated <%= @serie.maturity %></h3>

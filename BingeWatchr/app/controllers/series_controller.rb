@@ -33,7 +33,14 @@ class SeriesController < ApplicationController
   # POST /series
   # POST /series.json
   def create
-    Serie.create(name: params[:name], year: params[:year], user_id: params[:user_id], tipo_id: params[:tipo_id])
+    @series = Serie.new(series_params)
+    if @series.save
+      flash[:notice] = "Successfully created Series!"
+      redirect_to lista_series_url
+    else
+      flash[:alert] = "Error creating new Series!"
+      render :new
+    end  
   end
 
   # PATCH/PUT /series/1
@@ -68,6 +75,6 @@ class SeriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def series_params
-      params.require(:series).permit(:name, :year, :user_id, :tipo_id)
+      params.require(:serie).permit(:name, :year, :user_id, :tipo_id)
     end
 end
