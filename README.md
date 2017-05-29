@@ -17,8 +17,11 @@ ________________________
 
 # Read me
 
-Bonus: 
+## Bonus: 
+
 Heroku: https://bingewatchr.herokuapp.com
+
 Trello: https://trello.com/b/RpR8XwDp/bingewatchr
+
 Git Branches por feature
 
