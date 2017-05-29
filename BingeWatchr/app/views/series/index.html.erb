@@ -1,33 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Series</h1>
+<head>
+  <h1>Series</h1>
+</head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th>User</th>
-      <th>Tipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<body style="margin: 0px">
 
-  <tbody>
-    <% @series.each do |series| %>
-      <tr>
-        <td><%= series.name %></td>
-        <td><%= series.year %></td>
-        <td><%= series.user %></td>
-        <td><%= series.tipo %></td>
-        <td><%= link_to 'Show', series %></td>
-        <td><%= link_to 'Edit', edit_series_path(series) %></td>
-        <td><%= link_to 'Destroy', series, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="series">
+    <div class="container">
+      <div class="cards row">
+        <% @series.each do |series| %>
+            <div class="card col-xs-12">
+              <%= link_to image_tag(series.image), series_path(series) %>
+              <h1><%= series.name %></h1>
 
-<br>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+
 
 <%= link_to 'New Series', new_series_path %>

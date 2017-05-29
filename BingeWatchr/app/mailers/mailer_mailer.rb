@@ -1,6 +1,7 @@
 class MailerMailer < ApplicationMailer
-  def mail1(user)
+  def mail1(user, msg)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @msg = msg
+    mail(to: @user.email, subject: 'Nuevo contenido en BingeWatchrs !')
   end
 end

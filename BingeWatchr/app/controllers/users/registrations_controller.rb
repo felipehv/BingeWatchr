@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
    end
 
+
   def new0
     @users = User.new
     @pid = current_user.id
@@ -36,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   flash[:success] = "Usuario creado!"
     #   redirect_to root
     # end
-    if current_user.parent_id != nil
+    if current_user.parent_id != nil or current_user.admin
       @user = User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
     end
   end

@@ -10,6 +10,8 @@ class SeriesController < ApplicationController
   # GET /series/1
   # GET /series/1.json
   def show
+    @serie = Serie.find_by_id(params[:id])
+    @capitulos = @serie.capitulos
   end
 
   # GET /series/new
