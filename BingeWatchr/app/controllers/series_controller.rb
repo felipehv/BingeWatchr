@@ -33,11 +33,11 @@ class SeriesController < ApplicationController
   # POST /series
   # POST /series.json
   def create
-    @uid = current_user.
+    @uid = current_user.id
     @users = User.where(parent_id: @uid).all
     @series = Serie.new(series_params)
-    MailerMailer.mail1(@users, @series.name)
     if @series.save
+      MailerMailer.mail1(@users, @series.title)
       flash[:notice] = "Successfully created Series!"
       redirect_to lista_series_url
     else

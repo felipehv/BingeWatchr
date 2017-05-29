@@ -30,13 +30,13 @@ class CapitulosController < ApplicationController
   # POST /capitulos
   # POST /capitulos.json
   def create
-    @uid = current_user.
+    @uid = current_user.id
     @users = User.where(parent_id: @uid).all
     @capitulo = Capitulo.new(capitulo_params)
-    MailerMailer.mail1(@users, @capitulo.name)
 
     respond_to do |format|
       if @capitulo.save
+        MailerMailer.mail1(@users, @capitulo.title)
         format.html { redirect_to @capitulo, notice: 'Capitulo was successfully created.' }
         format.json { render :show, status: :created, location: @capitulo }
       else
