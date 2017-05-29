@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46c69b8b-01bc-4f12-a6ec-6d7923e70755" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/series_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/series_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/serie.rb" afterPath="$PROJECT_DIR$/app/models/serie.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/series/index.html.erb" afterPath="$PROJECT_DIR$/app/views/series/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170429200325_create_series.rb" afterPath="$PROJECT_DIR$/db/migrate/20170429200325_create_series.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/series/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="60">
+              <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
               </folding>
@@ -76,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20170429200325_create_series.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20170429200325_create_series.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20170429200325_create_series.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -166,10 +161,10 @@
         <option value="$PROJECT_DIR$/app/views/capitulos/showsome.html.erb" />
         <option value="$PROJECT_DIR$/app/models/serie.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170429200325_create_series.rb" />
-        <option value="$PROJECT_DIR$/app/views/series/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/series_controller.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/views/series/index.html.erb" />
       </list>
     </option>
   </component>
@@ -631,7 +626,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41404000" />
+    <option name="totallyTimeSpent" value="41469000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1016,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/series/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-503">
@@ -1047,6 +1032,16 @@
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/series/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
