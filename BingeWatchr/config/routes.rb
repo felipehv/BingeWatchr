@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   devise_scope :user do post '/users/create_admin' => 'users/registrations#create_admin' end
 
 
-  get 'series' => 'series#index'
+  get '/series' => 'series#index'
 
-  get 'series/:id' => 'series#show', as: :tag
+  get '/series/:id' => 'series#show', as: :tag
 
-  get 'series/:id/capitulos' => 'capitulos#showsome'
+  get '/series/:id/capitulos' => 'capitulos#showsome'
 
-  put 'capitulos/:id', to: 'capitulos#update'
+  put '/capitulos/:id', to: 'capitulos#update'
 
   resources :posts
   resources :users
