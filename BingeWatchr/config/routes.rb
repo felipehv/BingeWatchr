@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   devise_scope :user do post '/users/edit_user' => 'users/registrations#edit_user' end
   devise_scope :user do post '/users/create_admin' => 'users/registrations#create_admin' end
 
-
-  get 'series' => 'seires#index'
+  get 'series' => 'series#index'
 
   get 'series/:id' => 'series#show', as: :tag
 

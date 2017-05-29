@@ -96,3 +96,5 @@ capitulos.each do |title, seen, serie, episode, season, description, created, up
   Capitulo.create(title: title, seen: seen, serie: serie, episode: episode, season: season,
                   description: description, created_at: created, updated_at: updated)
 end
+
+User.create(email: "admin@uc.cl", password: "123456", admin: 1)

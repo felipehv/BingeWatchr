@@ -1,11 +1,12 @@
 class MainController < ApplicationController
 
-  #before_action authenticate_user!
+  before_action authenticate_user!
 
   def new0
     @users = User.new
     @pid = current_user.id
   end
+
 
   # GET /users/edit_user/<id>
   def edit0
