@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-  
+  before_action authenticate_user!
 
   def new0
     @users = User.new
@@ -15,7 +15,7 @@ class MainController < ApplicationController
 
   def profile
 
-    MailerMailer.mail1(current_user)
+    # MailerMailer.mail1(current_user)
     if user_signed_in?
       @users1 = User.where(parent_id: current_user.id).all
       if current_user.admin
