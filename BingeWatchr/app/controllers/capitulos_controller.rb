@@ -30,7 +30,10 @@ class CapitulosController < ApplicationController
   # POST /capitulos
   # POST /capitulos.json
   def create
+    @uid = current_user.
+    @users = User.where(parent_id: @uid).all
     @capitulo = Capitulo.new(capitulo_params)
+    MailerMailer.mail1(@users, @capitulo.name)
 
     respond_to do |format|
       if @capitulo.save
@@ -74,6 +77,6 @@ class CapitulosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def capitulo_params
-      params.require(:capitulo).permit(:name, :serie_id)
+      params.require(:capitulo).permit(:name, :serie_id, :parent_id, :id)
     end
 end

@@ -18,7 +18,7 @@ class SeriesController < ApplicationController
   def new
     @series = Serie.new
     @uid = current_user.id
-    
+
   end
 
   def new0
@@ -33,14 +33,17 @@ class SeriesController < ApplicationController
   # POST /series
   # POST /series.json
   def create
+    @uid = current_user.
+    @users = User.where(parent_id: @uid).all
     @series = Serie.new(series_params)
+    MailerMailer.mail1(@users, @series.name)
     if @series.save
       flash[:notice] = "Successfully created Series!"
       redirect_to lista_series_url
     else
       flash[:alert] = "Error creating new Series!"
       render :new
-    end  
+    end
   end
 
   # PATCH/PUT /series/1
