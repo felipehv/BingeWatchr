@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170429201214) do
     t.integer  "serie_id"
     t.integer  "episode"
     t.integer  "season"
+    t.integer  "rating"
     t.string   "description"
     t.boolean  "seen"
     t.datetime "created_at",  null: false

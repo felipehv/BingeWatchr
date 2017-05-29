@@ -17,7 +17,7 @@ class SeriesController < ApplicationController
 
   # GET /series/new
   def new
-    @series = Serie.new
+    @serie = Serie.new
     @uid = current_user.id
     
   end

@@ -79,19 +79,19 @@ end
 
 capitulos = [
     ["Pilot", false, Serie.find_by_name("The Leftovers"), 1, 1, "Kevin Garvey is a police chief in Mapleton, New York, working to keep order after the mysterious Sudden Departure, an unexplained event that occurred three years prior which saw the disappearance of many of the town's citizens. His wife, Laurie, has left him to join the Guilty Remnant (GR), an organization with unknown motives and members dressed in all-white who communicate by writing notes as they have taken a vow of silence. His son, Tom, has also left him to become a follower of Holy Wayne, a messianic figure. Kevin's daughter, Jill, lives with him and is in high school, but the erosion of her family life leads her to act out. Kevin is in conflict with Mayor Lucy Warburton about her plan for a parade to honor the victims of the Sudden Departure. His prediction that the GR will hold a protest during the parade, which will result in violence with the angered townspeople, unfortunately comes true. Afterward, Kevin begs Laurie to return home with him, but she refuses to speak to him. Bride-to-be, Megan (Meg) Abbott, shows up at the GR house asking if she can stay there for a few nights.",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"),5],
     ["Penguin One", false, Serie.find_by_name("The Leftovers"), 2, 1, "When an ATFEC (the Bureau of Alcohol, Tobacco, Firearms, Explosives, and Cults; formerly the ATF) team attacks Holy Wayne's hideout, Tommy kills somebody for the first time in order to protect Christine's life. Meg has been living at the GR residence for weeks and becomes frustrated at her apparent lack of progress into their ranks. Following his night shooting dogs with Dean, Kevin's stability is questioned by his deputies and Lucy. He later visits his institutionalized father when he himself feels his sanity unraveling. Tommy's guilt is exacerbated by his growing animosity towards Wayne. Jill, Aimee and the twins spend the day following Nora after Jill spots a pistol in Nora's purse.",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"),4],
     ["Two Boats and a Helicopter", false, Serie.find_by_name("The Leftovers"), 3, 1, "Reverend Matt Jamison is steadfast in his belief that the Departed have all been less than Heroes, despite the abuse this earns him from the public. Matt faces foreclosure on his church. Following an apparent sign from God, he wins enough money at the casino to buy it back. Encountering an unknown assailant throwing rocks at members of the Guilty Remnant, Matt tries to help, only to be hit by a rock himself, and knocked unconscious. Upon waking he learns he has missed the foreclosure deadline by two days; it is revealed that the Guilty Remnant have bought his church.",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"),5],
     ["Battle of the Bastards", false, Serie.find_by_name("Game of Thrones"), 9, 6, "Daenerys meets with the slave masters to negotiate terms of surrender, but they refuse it. Riding Drogon, as Rhaegal and Viserion assist, Daenerys attacks and burns the slavers' fleet. Grey Worm kills two of the masters, leaving one to tell of what he had witnessed. After the battle, Theon and Yara meet with Daenerys and Tyrion and agree to an alliance. Near Winterfell, the Stark and Bolton armies meet on the field. Ramsay feigns setting Rickon free, but kills him with a long-distance arrow before Jon can save him. In the battle, the Stark forces are pinned by Bolton soldiers, but are rescued by the Knights of the Vale. Ramsay flees inside Winterfell, but the Wildling giant Wun Wun, having taken numerous arrows to his body, manages to break down the gate before succumbing to his wounds. Jon brutally beats Ramsay and takes him prisoner. Sansa later visits Ramsay's cell in the kennels and watches as his starving hounds devour him.",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"),4]
 ]
 
 Capitulo.destroy_all
-capitulos.each do |title, seen, serie, episode, season, description, created, updated|
+capitulos.each do |title, seen, serie, episode, season, description, created, updated, rating|
   Capitulo.create(title: title, seen: seen, serie: serie, episode: episode, season: season,
-                  description: description, created_at: created, updated_at: updated)
+                  description: description, created_at: created, updated_at: updated, rating: rating)
 end
 
 
