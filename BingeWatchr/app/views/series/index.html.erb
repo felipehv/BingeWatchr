@@ -2,24 +2,29 @@
 
 <head>
   <h1>Series</h1>
+  <h1>De <%=@user%></h1>
 </head>
 
 <body style="margin: 0px">
 
-  <div class="series">
-    <div class="container">
-      <div class="cards row">
-        <% @series.each do |series| %>
-            <div class="card col-xs-12">
-              <%= link_to image_tag(series.image), series_path(series) %>
-              <h1><%= series.name %></h1>
+<div class="series">
+  <div class="container">
+    <div class="cards row">
+      <% @series.each do |series| %>
+          <div class="card col-xs-12">
+            <% if series.user == @user%>
 
-            </div>
-        <% end %>
-      </div>
+                <%= link_to image_tag(series.image), series_path(series) %>
+                <h1><%= series.name %></h1>
+            <% end %>
+
+          </div>
+      <% end %>
     </div>
   </div>
+</div>
 </body>
 
 
 <%= link_to 'New Series', new_series_path %>
+

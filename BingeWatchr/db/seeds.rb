@@ -6,12 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+User.create(email: "admin@uc.cl", password: "123456", admin: 1)
+User.create(email: "admin1@uc.cl", password: "123456", admin: 1)
+
 posts_list = [
     [ "LEAKED Star Wars 8", "april fools", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
     [ "LEAKED Star Wars 9", "april fools", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
     [ "LEAKED Star Wars 10", "april fools", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
     [ "LEAKED Star Wars 11", "april fools", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
 ]
+
+Post.destroy_all
+posts_list.each do |title, body, created, updated|
+  Post.create( title: title, body: body, created_at: created, updated_at: updated)
+end
 
 tipos_list = [
     ["Horror", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
@@ -33,57 +42,40 @@ tipos_list = [
     ["Telenovelas", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
 ]
 
-series_list = [
-    ["Game of Thrones", "D.B. Weiss, David Benioff", "14+", 2011,
-     "https://static.posters.cz/image/750/poster/game-of-thrones-juego-de-tronos-winter-is-coming-i18529.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
-    ["The Leftovers", "Damon Lindelof, Tom Perrotta", "16+", 2014,
-     "https://d919ce141ef35c47fc40-b9166a60eccf0f83d2d9c63fa65b9129.ssl.cf5.rackcdn.com/images/211594.max-620x600.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
-    ["Breaking Bad", "Vince Gilligan", "14+", 2008,
-     "http://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/breaking-bad-S5-400x600-compressedV1.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
-    ["Black Mirror", "Charlie Brooker", "16+", 2016,
-     "https://fantopia.club/wp-content/uploads/2017/03/black-mirror.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
-    ["True Detective", "Nic Pizzolatto", "Mature", 2014,
-    "https://s-media-cache-ak0.pinimg.com/736x/3b/58/1d/3b581d4e1a84e409e1aaa1df1eb6428d.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
-]
-
-admin_list = [
-    ["aiquinones@uc.cl", "", "", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 10,
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), "", "", true, 1,
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1, 1]
-]
-
-posts_list.each do |title, body, created, updated|
-  Post.create( title: title, body: body, created_at: created, updated_at: updated)
-end
-
-
 Tipo.destroy_all
-
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
 end
 
 
+series_list = [
+    ["Game of Thrones", "D.B. Weiss, David Benioff", "14+", 2011,
+     "https://static.posters.cz/image/750/poster/game-of-thrones-juego-de-tronos-winter-is-coming-i18529.jpg",
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     Tipo.find_by_name("Thriller")],
+    ["The Leftovers", "Damon Lindelof, Tom Perrotta", "16+", 2014,
+     "https://d919ce141ef35c47fc40-b9166a60eccf0f83d2d9c63fa65b9129.ssl.cf5.rackcdn.com/images/211594.max-620x600.jpg",
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     Tipo.find_by_name("Thriller")],
+    ["Breaking Bad", "Vince Gilligan", "14+", 2008,
+     "http://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/breaking-bad-S5-400x600-compressedV1.jpg",
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     Tipo.find_by_name("Thriller")],
+    ["Black Mirror", "Charlie Brooker", "16+", 2016,
+     "https://fantopia.club/wp-content/uploads/2017/03/black-mirror.jpg",
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     Tipo.find_by_name("Thriller")],
+    ["True Detective", "Nic Pizzolatto", "Mature", 2014,
+    "https://s-media-cache-ak0.pinimg.com/736x/3b/58/1d/3b581d4e1a84e409e1aaa1df1eb6428d.jpg",
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin1@uc.cl"),
+     Tipo.find_by_name("Thriller")]
+]
+
+Serie.destroy_all
 series_list.each do |name, creator, maturity, year, image, created, updated, user, tipo|
   Serie.create(name: name, creator: creator, maturity: maturity, year: year, image: image, created_at: created,
-               updated_at: updated)
+               updated_at: updated, user: user, tipo: tipo)
 end
-
-#admin_list.each do |email, encrypted, token, sent, remember, count, current, last, curentip, lastip, admin, user,
-  #  created, updated, index1, index2|
-  #User.create( email: email, encrypted_password: encrypted, reset_password_token: token,
-   #            reset_password_token_sent_at: sent, remember_created_at: remember, sign_in_count: count,
-    #           current_sign_in_at: current, last_sign_in_at: last, current_sign_in_ip: curentip,
-     #          last_sign_in_ip: lastip, admin: admin, user: user, created_at: created, updated_at: updated,
-      #         index_users_on_email: index1, index_users_on_reset_password_token: index2)
-#end
-
-
 
 capitulos = [
     ["Pilot", false, Serie.find_by_name("The Leftovers"), 1, 1, "Kevin Garvey is a police chief in Mapleton, New York, working to keep order after the mysterious Sudden Departure, an unexplained event that occurred three years prior which saw the disappearance of many of the town's citizens. His wife, Laurie, has left him to join the Guilty Remnant (GR), an organization with unknown motives and members dressed in all-white who communicate by writing notes as they have taken a vow of silence. His son, Tom, has also left him to become a follower of Holy Wayne, a messianic figure. Kevin's daughter, Jill, lives with him and is in high school, but the erosion of her family life leads her to act out. Kevin is in conflict with Mayor Lucy Warburton about her plan for a parade to honor the victims of the Sudden Departure. His prediction that the GR will hold a protest during the parade, which will result in violence with the angered townspeople, unfortunately comes true. Afterward, Kevin begs Laurie to return home with him, but she refuses to speak to him. Bride-to-be, Megan (Meg) Abbott, shows up at the GR house asking if she can stay there for a few nights.",
@@ -96,12 +88,10 @@ capitulos = [
      DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
 ]
 
+Capitulo.destroy_all
 capitulos.each do |title, seen, serie, episode, season, description, created, updated|
   Capitulo.create(title: title, seen: seen, serie: serie, episode: episode, season: season,
                   description: description, created_at: created, updated_at: updated)
 end
 
-
-User.destroy_all
-User.create(email: "admin@uc.cl", password: "123456", admin: 1)
 

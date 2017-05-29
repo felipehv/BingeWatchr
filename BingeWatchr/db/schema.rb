@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 20170429201214) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "tipo_id"
+    t.index ["user_id"], name: "index_series_on_user_id", using: :btree
+    t.index ["tipo_id"], name: "index_series_on_tipo_id", using: :btree
   end
 
   create_table "tipos", force: :cascade do |t|

@@ -5,6 +5,7 @@ class SeriesController < ApplicationController
   # GET /series.json
   def index
     @series = Serie.all
+    @user = current_user
   end
 
   # GET /series/1
