@@ -37,7 +37,7 @@ class SeriesController < ApplicationController
     users = User.where(parent_id: uid).all
     @series = Serie.new(series_params)
     if @series.save
-      MailerMailer.mail1(users, @series.title).deliver
+      MailerMailer.mail1(users, @series.name).deliver
       flash[:notice] = "Successfully created Series!"
       redirect_to lista_series_url
     else
