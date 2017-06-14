@@ -11,6 +11,15 @@
   <strong>Descripcion:</strong>
   <%= @capitulo.description%>
 </p>
+
+<p>
+  <% for star in 1..@capitulo.rating %>
+      <%= image_tag 'https://image.flaticon.com/icons/png/128/60/60973.png' %>
+      <% end %>
+
+      </p>
+
+
 <p>
   <% if @capitulo.seen then%>
       <strong>Visto</strong>

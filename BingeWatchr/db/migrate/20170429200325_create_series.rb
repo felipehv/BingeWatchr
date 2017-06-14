@@ -6,8 +6,10 @@ class CreateSeries < ActiveRecord::Migration[5.0]
       t.string :maturity
       t.integer :year
       t.string :image
+
       t.integer :user_id
       t.integer :tipo_id
+
 
       t.timestamps
     end

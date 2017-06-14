@@ -14,7 +14,7 @@
               <% if series.image != nil %>
                 <%= link_to image_tag(series.image, :style => "width: 100%"), series_path(series) %>
               <% else %>
-                <%= link_to image_tag("/images/BW_placeholder.jpg"), series_path(series) %>
+                <%= link_to image_tag("/images/BW_placeholder.jpg", :style => "width: 100%"), series_path(series) %>
               <% end %>
               <h1><%= series.name %></h1>
 

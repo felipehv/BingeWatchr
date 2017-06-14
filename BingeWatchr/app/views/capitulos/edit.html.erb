@@ -7,7 +7,10 @@
           <%= f.input :episode %>
           <%= f.input :season %>
           <%= f.association :serie %>
+          <%= f.input :rating, collection: 1..5, as: :radio_buttons %>
+          <%= f.input :seen, as: :check_boxes %>
           <%= f.input :description%>
+
 
           <%= f.button :submit %>
 

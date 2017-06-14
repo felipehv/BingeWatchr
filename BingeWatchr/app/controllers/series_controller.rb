@@ -5,6 +5,7 @@ class SeriesController < ApplicationController
   # GET /series.json
   def index
     @series = Serie.all
+    @user = current_user
   end
 
   # GET /series/1
@@ -16,7 +17,7 @@ class SeriesController < ApplicationController
 
   # GET /series/new
   def new
-    @series = Serie.new
+    @serie = Serie.new
     @uid = current_user.id
 
   end

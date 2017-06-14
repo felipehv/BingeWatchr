@@ -6,6 +6,7 @@ class CreateCapitulos < ActiveRecord::Migration[5.0]
       t.references :serie, foreign_key: true
       t.integer :episode
       t.integer :season
+      t.integer :rating
       t.string :description
 
       t.timestamps
