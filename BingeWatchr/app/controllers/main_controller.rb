@@ -31,7 +31,7 @@ class MainController < ApplicationController
     #   flash[:success] = "Usuario creado!"
     #   redirect_to root
     # end
-    if current_user.parent_id != nil or current_user.admin
+    if (current_user.parent_id != nil) or current_user.admin
       @user = User.create(email: params[:email], password: params[:password], parent_id: params[:parent_id])
     end
   end

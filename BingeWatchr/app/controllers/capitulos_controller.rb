@@ -34,6 +34,9 @@ class CapitulosController < ApplicationController
 
     respond_to do |format|
       if @capitulo.save
+        uid = current_user.id
+        users = User.where(parent_id: uid).all
+        MailerMailer.mail1(users, @capitulo.title).deliver
         format.html { redirect_to @capitulo, notice: 'Capitulo was successfully created.' }
         format.json { render :show, status: :created, location: @capitulo }
       else
@@ -74,6 +77,6 @@ class CapitulosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def capitulo_params
-      params.require(:capitulo).permit(:name, :serie_id)
+      params.require(:capitulo).permit(:name, :serie_id, :parent_id, :id)
     end
 end

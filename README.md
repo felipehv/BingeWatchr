@@ -17,4 +17,11 @@ ________________________
 
 # Read me
 
-Documento de especificaciones del alumno.
+## Bonus: 
+
+Heroku: https://bingewatchr.herokuapp.com
+
+Trello: https://trello.com/b/RpR8XwDp/bingewatchr
+
+Git Branches por feature
+

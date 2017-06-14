@@ -1,11 +1,11 @@
-<%= simple_form_for(@series) do |f| %>
+<%= simple_form_for(@series, :url => create_new_series_url, :id  => @series.id, :method => :post) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :year %>
-    <%= f.hidden_field_tag :user, @uid %>
-    <%= f.association :tipo %>
+    <%= f.hidden_field :user, :value => @uid %>
+    <%= f.collection_select :tipo_id, Tipo.all, :id, :name , default: 0 %>
   </div>
 
   <div class="form-actions">

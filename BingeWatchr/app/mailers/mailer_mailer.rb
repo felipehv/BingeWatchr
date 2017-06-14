@@ -1,7 +1,10 @@
 class MailerMailer < ApplicationMailer
-  def mail1(user, msg)
-    @user = user
+  def mail1(users, msg)
+    @users = users
     @msg = msg
-    mail(to: @user.email, subject: 'Nuevo contenido en BingeWatchrs !')
+    @users.each do |user|
+      @user = user
+      mail(to: user.email, subject: 'Nuevo contenido en BingeWatchrs !')
+    end
   end
 end

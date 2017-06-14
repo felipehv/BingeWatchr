@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20170429201214) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "admin"
-    t.integer  "user"
+    t.integer  "parent_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
