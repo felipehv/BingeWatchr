@@ -9,7 +9,7 @@
     <% if current_page?('/profile') %>
       <li style="float:right"><a class="active" href="<%= destroy_user_session_path %>">Logout</a></li>
     <% else %>
-      <li style="float:right"><a class="active" href='/profile'>Perfíl</a></li>
+      <li style="float:right"><a class="active" href='/profile'>Perfil</a></li>
     <% end %>
   <% else %>
     <li style="float:right"><a class="active" href="<%= new_user_session_path %>">Login</a></li>
