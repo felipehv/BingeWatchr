@@ -3,6 +3,39 @@
 * {
     box-sizing: border-box;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #222E59;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover:not(.active) {
+    background-color: #152045;
+}
+.active {
+    background-color: #6087C5;
+    border-right: 0;
+    border-top: 0;
+}
+li a:hover{
+    background-color: #4875B7;
+}
 .row::after {
     content: "";
     clear: both;
@@ -100,7 +133,7 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-  color: #18BC9C;
+  
 }
 h1,
 h2,
