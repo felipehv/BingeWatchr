@@ -1,17 +1,21 @@
-<div class="row" style=" max-height: 120px; background-color:#222E59 " >
-  <div align="center" class="col-2" style="vertical-align: middle; background-color:#222E59; max-height: 120px">
+<div class="row" style=" max-height: 120px; background-color:#152045; position: fixed; top: 0; width: 100%; " >
+  <div align="center" class="col-2" style="vertical-align: middle; background-color:#152045; max-height: 120px">
   <%= link_to image_tag("/images/BingeWatchr.png", alt: "BingeWatchr logo", :style =>  'display:inline-block; width: 30%'), root_path%>
   </div>
-  <div align="right" class="col-1" style="vertical-align: middle; background-color:#222E59;height:100%">
-  <% if user_signed_in? %>
+  <ul>
+    <li><a href="<%= root_path %>">Home</a></li>
+    <li><a href='/series'>Series</a></li>
+    <% if user_signed_in? %>
     <% if current_page?('/profile') %>
-      <%= button_to 'Logout', destroy_user_session_path, {:method => :delete , :style => "vertical-align: middle; text-align: center; padding: 10px 20px; margin: 4px 0;", :class => 'buttonTo' } %>
+      <li style="float:right"><a class="active" href="<%= destroy_user_session_path %>">Logout</a></li>
     <% else %>
-      <%= button_to 'Perfíl', '/profile', {:method => :get , :style => "vertical-align: middle; text-align: center; padding: 10px 20px; margin: 4px 0;", :class => 'buttonTo' } %>
+      <li style="float:right"><a class="active" href='/profile'>Perfíl</a></li>
     <% end %>
-    <%= button_to 'Series', '/series', {:method => :get , :style => "vertical-align: middle; text-align: center; padding: 10px 20px; margin: 4px 0;", :class => 'buttonTo' } %>
   <% else %>
-    <%= button_to('Login', new_user_session_path, :method => "get", :html => { :style => 'padding: 0px 0px; margin: 0px 0;vertical-align: middle; text-align: center'})  %>  
+    <li style="float:right"><a class="active" href="<%= new_user_session_path %>">Login</a></li>
   <% end %>
-  </div>
+  </ul>
+</div>
+<div style="margin-top: 160px">
+  
 </div>
