@@ -135,6 +135,14 @@ a:active,
 a.active {
   
 }
+div.spacer
+{
+    font-size: 0; 
+    margin-top: 8%;
+    height: 25px;
+
+    line-height: 0;
+}
 h1,
 h2,
 h3,
