@@ -1,21 +1,5 @@
 <h1>New Series</h1>
 
-<%= simple_form_for(@serie) do |f| %>
-
-    <p>Form</p>
-
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :year %>
-      <%= f.hidden_field_tag :user, @uid %>
-      <%= f.association :tipo %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-<% end %>
+<%= render 'form', series: @series %>
 
 <%= link_to 'Back', '/series' %>

@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>  
+
+  <%= form_tag lista_series_url, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
 
 <head>
   <h1>Series</h1>
@@ -10,13 +17,13 @@
     <div class="container">
       <div class="cards row">
         <% @series.each do |series| %>
-            <div class="card col-xs-12" style="  margin: 0px">
+            <div class="card cola-xs-12" style="  margin: 0px">
               <% if series.image != nil %>
                 <%= link_to image_tag(series.image, :style => "width: 100%"), series_path(series) %>
               <% else %>
                 <%= link_to image_tag("/images/BW_placeholder.jpg", :style => "width: 100%"), series_path(series) %>
               <% end %>
-              <h1><%= series.name %></h1>
+              <h3><%= series.name %></h3>
 
             </div>
         <% end %>
