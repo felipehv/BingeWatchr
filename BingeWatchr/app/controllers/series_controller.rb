@@ -4,8 +4,7 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Serie.all
-    @user = current_user
+    @series = Serie.filter(params[:search],params[:tipo_id])
   end
 
   # GET /series/1
@@ -17,7 +16,7 @@ class SeriesController < ApplicationController
 
   # GET /series/new
   def new
-    @serie = Serie.new
+    @series = Serie.new
     @uid = current_user.id
 
   end

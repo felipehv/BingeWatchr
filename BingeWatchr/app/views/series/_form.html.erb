@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :year %>
     <%= f.hidden_field :user, :value => @uid %>
-    <%= f.collection_select :tipo_id, Tipo.all, :id, :name , default: 0 %>
+    <%= f.collection_select :tipo_id, Tipo.all, :id, :name , { :prompt => 'Selecciona un tipo' } %>
   </div>
 
   <div class="form-actions">
