@@ -4,7 +4,7 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Serie.search(params[:search])
+    @series = Serie.filter(params[:search],params[:tipo_id])
   end
 
   # GET /series/1
