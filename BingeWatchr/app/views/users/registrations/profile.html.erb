@@ -3,8 +3,14 @@
 
 
     <% if user_signed_in? %>
-
-
+    <div>
+    <%= image_tag("/images/BW_placeholder.jpg", :style => "width: 100%") %>
+    <% if current_user.image != nil %>
+      <%= image_tag(current_user.image, :style => "width: 100%")%>
+    <% else %>
+      <%= image_tag("/images/BW_placeholder.jpg", :style => "width: 100%") %>
+    <% end %>
+    </div>
 
     <h2>Cuentas Asociadas</h2>
       <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
