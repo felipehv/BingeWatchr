@@ -4,7 +4,7 @@
   <%= text_field_tag(:email) %>
 
   <%= label_tag(:year, "Año de la serie") %>
-  <%= number_field_tag(:password), min: 0, max: 2017 %>
+  <%= number_field_tag(:year), min: 0, max: 2017 %>
 
   <%= f.collection_select :tipo_id, Provider.order(:name),:id,:name, include_blank: true %>
 
@@ -12,5 +12,5 @@
   <%= hidden_field_tag(:user_id, @uid) %>
 
 
-  <%= submit_tag("Crear hijo") %>
+  <%= submit_tag("Crear serie") %>
 <% end %>

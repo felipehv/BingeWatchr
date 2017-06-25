@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div align="center">
-  
+
   <% if @serie.image != nil %>
     <%= image_tag @serie.image %>
   <% else %>
@@ -13,9 +13,7 @@
   <h3><%= @serie.year %></h3>
 
   <%= link_to "Capitulo", controller: "capitulos", action: "showsome", id: @serie %>
-  <%= link_to 'Edit', edit_series_path(@serie) %>
-  <%= link_to 'Destroy', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Editar', edit_series_path(@serie) %>
+  <%= link_to 'Eliminar', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>
-
-
