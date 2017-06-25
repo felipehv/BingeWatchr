@@ -1,6 +1,7 @@
 class SeriesController < ApplicationController
   before_action :set_series, only: [:show, :edit, :update, :destroy]
-
+  require 'net/http'
+  require 'uri'
   # GET /series
   # GET /series.json
   def index
@@ -12,13 +13,6 @@ class SeriesController < ApplicationController
   def show
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
-    if params[:body].present?
-      if user_signed_in?
-        @comment = Comment.new(series_id: @serie.id, body: params[:body], user_id: current_user.id)
-      else
-        @comment = Comment.new(series_id: @serie.id, body: params[:body])
-      end
-    end
     @comments = Comment.where(series_id: @serie.id) 
   end
 

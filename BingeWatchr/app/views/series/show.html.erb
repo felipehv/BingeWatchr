@@ -11,6 +11,19 @@
   <h3>by <%= @serie.creator %></h3>
   <h3>Rated <%= @serie.maturity %></h3>
   <h3><%= @serie.year %></h3>
+  <% uri = URI.parse("https://api.spotify.com/v1/search?q="+@serie.name.gsub(' ', '+')+"&type=playlist&limit=1") %>
+  <% request = Net::HTTP::Get.new(uri) %>
+  <% request["Accept"] = "application/json" %>
+  <% request["Authorization"] = "Bearer BQBZy3WDcr8_27mMLw5xuUrTmH_HyIHNKgsbTDsn-W_NcnG8D9yZdYgfd-0XNXYJOPCKcLrWlUQJ__8sxLDBpoTTIgF8mFW3bWZ3ie8_-YSSMMccSu0VotLeKrgj_rOdFaObqGvd6yjLqgI5AgeSVRNX5w0SZjThup8OepQ2L9k_3_yS4kEplh6YM3Iwtj61sZhSk_CohAiQixZhNMFxafyuo46zymsc8UTlBUd8lJhEgtyyINWUqNbA52gbychS3kvR1bxpFMvJeZC7" %>
+  <% req_options = {use_ssl: uri.scheme == "https",} %>
+  <% response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http| %>
+    <% http.request(request) %>
+  <% end %>
+  <% response = JSON.parse(response.body) %>
+  <h3>Soundtrack</h3>
+  <%= content_tag(:iframe,'',width: 300, height: 380, frameborder: 0, allowtransparency: true, src: response["playlists"]["items"][0]["external_urls"]["spotify"].gsub('open.spotify.com/user', 'open.spotify.com/embed/user')) %>
+  <br>
+  
 
   <%= link_to "Capitulo", controller: "capitulos", action: "showsome", id: @serie %>
   <%= link_to 'Edit', edit_series_path(@serie) %>
@@ -31,6 +44,7 @@
         <%= comment.body %>
       </td></tr>
     <% end %>
+
     <% if user_signed_in? %>
     <tr><td>
       <%= form_tag '/comments', :method => 'post' do %>
