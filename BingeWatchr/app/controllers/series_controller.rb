@@ -12,6 +12,14 @@ class SeriesController < ApplicationController
   def show
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
+    if params[:body].present?
+      if user_signed_in?
+        @comment = Comment.new(series_id: @serie.id, body: params[:body], user_id: current_user.id)
+      else
+        @comment = Comment.new(series_id: @serie.id, body: params[:body])
+      end
+    end
+    @comments = Comment.where(series_id: @serie.id) 
   end
 
   # GET /series/new

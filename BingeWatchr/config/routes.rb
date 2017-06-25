@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :capitulos
   resources :series
   mount Ckeditor::Engine => '/ckeditor'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/series' => 'series#index', as: :lista_series
   post '/series' => 'series#create', as: :create_new_series
+  post '/comments' => 'comments#create' 
 
   get '/series/:id' => 'series#show', as: :tag
 
