@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post '/series' => 'series#create', as: :create_new_series
   post '/comments' => 'comments#create' 
 
-  post '/rating_series' => 'rating_series#create', as: :create_rating_series
+  post '/rating_series' => 'rating_series#create', as: :create_rating
 
   get '/series/:id' => 'series#show', as: :tag
 
