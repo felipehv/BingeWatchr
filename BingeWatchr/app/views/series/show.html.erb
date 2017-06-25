@@ -1,19 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<div align="center">
+<br align="center">
 
-  <% if @serie.image != nil %>
-    <%= image_tag @serie.image %>
+</br>
+  
+<% if @serie.image != nil %>
+  <%= image_tag @serie.image %>
+<% else %>
+  <%= link_to image_tag("/images/BW_placeholder.jpg") %>
+<% end %>
+<h1><%= @serie.name %></h1>
+<h3>by <%= @serie.creator %></h3>
+<h3>Rated <%= @serie.maturity %></h3>
+<h3><%= @serie.year %></h3>
+
+<% if @user %>
+
+  <% rating = RatingSerie.find_by(user: @user, serie: @serie) %>
+
+  <% if rating %>
+      <% full = rating.value.floor%>
+      <% half = 0 %>
+      <% if rating.value - full > 0 %>
+          <% half = 1 %>
+      <% end %>
+      <% empty = 5 - full - half%>
+      <% half %>
+
+      <% (1..full).each do |i| %>
+          <%= image_tag('star-on.png') %>
+      <% end %>
+      <% (1..half).each do |i| %>
+          <%= image_tag('star-half.png') %>
+      <% end %>
+      <% (1..empty).each do |i| %>
+          <%= image_tag('star-off.png') %>
+      <% end %>
   <% else %>
-    <%= link_to image_tag("/images/BW_placeholder.jpg") %>
-  <% end %>
-  <h1><%= @serie.name %></h1>
-  <h3>by <%= @serie.creator %></h3>
-  <h3>Rated <%= @serie.maturity %></h3>
-  <h3><%= @serie.year %></h3>
 
-  <%= link_to "Capitulo", controller: "capitulos", action: "showsome", id: @serie %>
-  <%= link_to 'Editar', edit_series_path(@serie) %>
-  <%= link_to 'Eliminar', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= @serie.name %> aun no tiene rating. Agrega uno!
+  <%= simple_form_for(RatingSerie.new, :url => create_new_series_url, :id  => @series.id, :method => :post) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.hidden_field :user => @user %>
+        <%= f.hidden_field :serie => @serie %>
+        <%= f.input :value, collection: 1..5 %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+  <% end %>
+        
+<% end %>
+
+</br>
+</br>
+
+
+
+<div class="text-center">
+  <%= button_to 'Ver Capítulos', controller: "capitulos", action: "showsome", id: @serie %>
+  <%= button_to 'Editar Serie', edit_series_path(@serie) %>
+  <%= button_to 'Eliminar Serie', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+
+</div>
+>>>>>>> imdb
 
 </div>

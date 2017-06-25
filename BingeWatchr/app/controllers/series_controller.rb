@@ -12,6 +12,7 @@ class SeriesController < ApplicationController
   def show
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
+    @user = current_user
   end
 
   # GET /series/new
