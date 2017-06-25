@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
 User.create(email: "admin@uc.cl", password: "123456", admin: 1)
 User.create(email: "admin1@uc.cl", password: "123456", admin: 1)
 
@@ -17,7 +16,6 @@ posts_list = [
     [ "LEAKED Star Wars 11", "april fools", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
 ]
 
-Post.destroy_all
 posts_list.each do |title, body, created, updated|
   Post.create( title: title, body: body, created_at: created, updated_at: updated)
 end
@@ -42,7 +40,6 @@ tipos_list = [
     ["Telenovelas", DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")],
 ]
 
-Tipo.destroy_all
 tipos_list.each do |tipo, created, updated|
   Tipo.create(name: tipo, created_at: created, updated_at: updated)
 end
@@ -71,10 +68,9 @@ series_list = [
      Tipo.find_by_name("Thriller")]
 ]
 
-Serie.destroy_all
 series_list.each do |name, creator, maturity, year, image, created, updated, user, tipo|
   Serie.create(name: name, creator: creator, maturity: maturity, year: year, image: image, created_at: created,
-               updated_at: updated, user: user, tipo: tipo)
+               updated_at: updated, user_id: user, tipo_id: tipo)
 end
 
 capitulos = [
@@ -88,10 +84,17 @@ capitulos = [
      DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"),4]
 ]
 
-Capitulo.destroy_all
 capitulos.each do |title, seen, serie, episode, season, description, created, updated, rating|
   Capitulo.create(title: title, seen: seen, serie: serie, episode: episode, season: season,
                   description: description, created_at: created, updated_at: updated, rating: rating)
+end
+
+comments = [
+    [1, "Mejor serie de la historia!!!", 1, DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00")]
+]
+
+comments.each do |user, body, serie, created, updated|
+  Comment.create(user_id: user, body: body, series_id: serie, created_at: created, updated_at: updated)
 end
 
 

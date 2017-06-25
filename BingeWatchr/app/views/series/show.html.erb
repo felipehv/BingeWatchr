@@ -1,21 +1,119 @@
 <p id="notice"><%= notice %></p>
 
-<div align="center">
+<br align="center">
 
-  <% if @serie.image != nil %>
-    <%= image_tag @serie.image %>
+</br>
+  
+<% if @serie.image != nil %>
+  <%= image_tag @serie.image %>
+<% else %>
+  <%= link_to image_tag("/images/BW_placeholder.jpg") %>
+<% end %>
+
+<h1><%= @serie.name %></h1>
+<h3>by <%= @serie.creator %></h3>
+<h3>Rated <%= @serie.maturity %></h3>
+<h3><%= @serie.year %></h3>
+
+<% if @user %>
+
+  <% rating = RatingSerie.find_by(user: @user, serie: @serie) %>
+
+  <% if rating %>
+      <% full = rating.value.floor%>
+      <% half = 0 %>
+      <% if rating.value - full > 0 %>
+          <% half = 1 %>
+      <% end %>
+      <% empty = 5 - full - half%>
+      <% half %>
+
+      <% (1..full).each do |i| %>
+          <%= image_tag('star-on.png') %>
+      <% end %>
+
+      <% (1..half).each do |i| %>
+          <%= image_tag('star-half.png') %>
+      <% end %>
+
+      <% (1..empty).each do |i| %>
+          <%= image_tag('star-off.png') %>
+      <% end %>
+
   <% else %>
-    <%= link_to image_tag("/images/BW_placeholder.jpg") %>
-  <% end %>
+
+  <%= @serie.name %> aun no tiene rating. Agrega uno!
+  <%= simple_form_for(RatingSerie.new, :url => create_new_series_url, :id  => @series.id, :method => :post) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :value, collection: 1..5 %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>n
+
   <h1><%= @serie.name %></h1>
   <h3>by <%= @serie.creator %></h3>
   <h3>Rated <%= @serie.maturity %></h3>
   <h3><%= @serie.year %></h3>
+  <% uri = URI.parse("https://api.spotify.com/v1/search?q="+@serie.name.gsub(' ', '+')+"&type=playlist&limit=1") %>
+  <% request = Net::HTTP::Get.new(uri) %>
+  <% request["Accept"] = "application/json" %>
+  <% request["Authorization"] = "Bearer BQBZy3WDcr8_27mMLw5xuUrTmH_HyIHNKgsbTDsn-W_NcnG8D9yZdYgfd-0XNXYJOPCKcLrWlUQJ__8sxLDBpoTTIgF8mFW3bWZ3ie8_-YSSMMccSu0VotLeKrgj_rOdFaObqGvd6yjLqgI5AgeSVRNX5w0SZjThup8OepQ2L9k_3_yS4kEplh6YM3Iwtj61sZhSk_CohAiQixZhNMFxafyuo46zymsc8UTlBUd8lJhEgtyyINWUqNbA52gbychS3kvR1bxpFMvJeZC7" %>
+  <% req_options = {use_ssl: uri.scheme == "https",} %>
+  <% response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http| %>
+    <% http.request(request) %>
+  <% end %>
+  <% response = JSON.parse(response.body) %>
+  <h3>Soundtrack</h3>
+  <%= content_tag(:iframe,'',width: 300, height: 380, frameborder: 0, allowtransparency: true, src: response["playlists"]["items"][0]["external_urls"]["spotify"].gsub('open.spotify.com/user', 'open.spotify.com/embed/user')) %>
+  <br>
 
-  <%= link_to "Capitulo", controller: "capitulos", action: "showsome", id: @serie %>
-  <%= link_to 'Editar', edit_series_path(@serie) %>
-  <%= link_to 'Eliminar', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+<% end %>
 
+</br>
+</br>
+
+  
+
+
+</div>
+<br>
+<div>
+<table style="width: 800px; max-width: 75%">
+  <tr><th>Commentarios</th></tr>
+  
+    <% @comments.each do |comment| %>
+      <tr><td>
+        <b><%= User.find_by_id(comment.user_id).email %>:</b>
+        <%= comment.body %>
+      </td></tr>
+    <% end %>
+
+
+    <% if user_signed_in? %>
+    <tr><td>
+      <%= form_tag '/comments', :method => 'post' do %>
+        
+          <%= text_field_tag :body, params[:body], :style => "width: 80%" %>
+          <%= hidden_field_tag(:user_id, current_user.id) %>
+          <%= hidden_field_tag(:series_id, @serie.id) %>
+          <%= submit_tag "Commentar", :name => nil %>
+        
+      <% end %>      
+    </td></tr>
+    <% end %>
+    </table>
+</div>
+
+<div class="text-center">
+  <%= button_to 'Ver Capítulos', controller: "capitulos", action: "showsome", id: @serie %>
+  <%= button_to 'Editar Serie', edit_series_path(@serie) %>
+  <%= button_to 'Eliminar Serie', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
 </div>

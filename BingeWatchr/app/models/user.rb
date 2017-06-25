@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :series
+  has_many :rating_series
+  has_many :watch_laters
+  has_many :favorites
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -14,4 +17,5 @@ class User < ApplicationRecord
     # user.skip_confirmation!
     end
   end
+
 end
