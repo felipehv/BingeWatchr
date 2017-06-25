@@ -74,9 +74,9 @@ li a:hover{
     min-width: 18%;
 }
 [class*="button_t"] {
-	vertical-align: middle; 
+	vertical-align: middle;
 	text-align: left;
-    
+
 }
 .container{
 	margin: 0px
@@ -166,7 +166,7 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-  
+
 }
 div.spacer
 {
@@ -200,4 +200,5 @@ h6 {
  *
  *= require_tree .
  *= require_self
+ *= require ionicons 
  */

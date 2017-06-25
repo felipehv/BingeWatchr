@@ -1,5 +1,7 @@
 
 <body style="margin: 0px">
+
+
 <div class="container">
 
 <div class="col-sm-11 col-xs-12 blog-content">
@@ -8,6 +10,9 @@
   <div><%= raw @post.body %></div>
   <%= button_to "Home", root_path, :method => "get" %>
 </div>
-
 </div>
+<!-- social -->
+<div class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u="+<%=request.original_url%> >Compartir</a></div>
+<!-- # <%= social_share_button_tag(@post.title) %> -->
+<!-- end social -->
 </body>
