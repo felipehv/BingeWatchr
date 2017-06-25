@@ -11,10 +11,11 @@
 <head>
   <h1>Series</h1>
 </head>
-
+<% if user_signed_in? %>
 <div class="text-center">
   <%= button_to 'New Series', new_series_path, :method => "get" %>
 </div>
+<% end %>
 
 <body style="margin: 0px">
 
