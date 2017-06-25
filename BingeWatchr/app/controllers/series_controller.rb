@@ -1,6 +1,7 @@
 class SeriesController < ApplicationController
   before_action :set_series, only: [:show, :edit, :update, :destroy]
-
+  require 'net/http'
+  require 'uri'
   # GET /series
   # GET /series.json
   def index
@@ -12,7 +13,11 @@ class SeriesController < ApplicationController
   def show
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
+
+    @comments = Comment.where(series_id: @serie.id) 
+
     @user = current_user
+
   end
 
   # GET /series/new
