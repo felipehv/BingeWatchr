@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/series' => 'series#index', as: :lista_series
   post '/series' => 'series#create', as: :create_new_series
 
+  post '/rating_series' => 'rating_series#create', as: :create_rating_series
+
   get '/series/:id' => 'series#show', as: :tag
 
   get '/series/:id/capitulos' => 'capitulos#showsome'
