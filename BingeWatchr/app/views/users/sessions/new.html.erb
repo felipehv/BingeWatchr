@@ -27,6 +27,10 @@
   </div>
 
   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <%= link_to user_facebook_omniauth_authorize_path, class: 'facebook z-depth-1' do %>
+    <i class="ion-social-facebook"></i><span><%= t 'devise.sessions.new.social.facebook' %></span>
+  <% end %>
+
 
 <% end %>
 
