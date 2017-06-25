@@ -1,12 +1,14 @@
-class SeriesController < ApplicationController
+class RatingSeriesController < ApplicationController
 
 
   def create
-    @rating = RatingSerie.new(rating_params)
+    user = User.find(params[:user])
+    serie = Serie.find(params[:serie])
+    @rating = RatingSerie.new(user: user, serie: serie, value: params[:value])
     if @rating.save
-      redirect_to tag_path(params[:user])
+      redirect_to tag_path(params[:serie])
     else
-      redirect_to tag_path(params[:user])
+      redirect_to tag_path(params[:serie])
     end
   end
 
@@ -14,7 +16,7 @@ class SeriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def rating_params
-    params.require(:rating_params).permit(:user, :serie, :value)
+    params.permit(:user, :serie, :value)
   end
 
 end
