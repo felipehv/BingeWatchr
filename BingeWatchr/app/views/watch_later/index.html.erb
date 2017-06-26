@@ -1,0 +1,27 @@
+<p id="notice" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
+
+<head>
+  <h1>Capitulos en Watch Later</h1>
+</head>
+
+<body style="margin: 0px">
+
+<div class="capitulos">
+  <div class="container">
+    <div class="cards row">
+      <% @wl.each do |wl| %>
+          <% episode = Capitulo.find(wl.capitulo) %>
+          <div class="card col-xs-12">
+            <strong><%= episode.title %>, from <%= episode.serie.name %></strong>
+            <strong>Episodio <%= episode.episode%>, Temporada <%= episode.season%></strong></br>
+
+            <div style="margin: 0 30px;">
+              <%= button_to 'Learn More', capitulo_path(episode) %>
+            </div>
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>

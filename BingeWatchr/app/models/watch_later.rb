@@ -1,4 +1,4 @@
 class WatchLater < ApplicationRecord
   belongs_to :user
-  belongs_to :serie
+  belongs_to :capitulo
 end
