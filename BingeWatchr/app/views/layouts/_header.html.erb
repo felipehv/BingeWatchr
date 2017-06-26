@@ -8,13 +8,16 @@
   <ul>
     <li><a href="<%= root_path %>">Home</a></li>
     <li><a href='/series'>Series</a></li>
+    <% if user_signed_in? %>
     <li><a href='/favorites'>Favorites</a></li>
+    <li><a href='/statistics'>Estadisticas</a></li>
+    <% end %>
 
   <% if user_signed_in? %>
     <% if current_page?('/profile') %>
       <li style="float:right"><a class="active" href="<%= destroy_user_session_path %>">Logout</a></li>
     <% else %>
-      <li style="float:right"><a class="active" href='/profile'>Perfil</a></li>
+      <li style="float:right"><a class="active" href='/profile'>Settings</a></li>
     <% end %>
   <% else %>
     <li style="float:right"><a class="active" href="<%= new_user_session_path %>">Login</a></li>
@@ -22,7 +25,7 @@
   </ul>
 </div>
 
-<div style="margin-top: 160px">
+<div style="margin-top: 80px">
 
 </div>
 <div id="fb-root"></div>
