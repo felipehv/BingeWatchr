@@ -5,7 +5,27 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Serie.filter(params[:search],params[:tipo_id])
+    if user_signed_in?
+      if current_user.admin
+        @series = Serie.all
+      else
+        @admins = User.where(admin: true)
+        @series = Serie.where(user_id: current_user.id)
+        @series = @series + Serie.where(user_id: current_user.parent_id)
+        @admins.each do |adm|
+          @series = @series + Serie.where(user_id: adm.id)
+        end
+      end
+    else
+      @admins = User.where(:admin => true)
+      @series = Serie.where(user_id: -1)
+      @admins.each do |adm|
+        @series = @series + Serie.where(:user_id => adm.id)
+      end
+    end
+    unless @series.empty?
+      @series = Serie.filter(params[:search],params[:tipo_id], @series)
+    end
   end
 
   # GET /series/1

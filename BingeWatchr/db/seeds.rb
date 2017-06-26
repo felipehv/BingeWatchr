@@ -48,23 +48,23 @@ end
 series_list = [
     ["Game of Thrones", "D.B. Weiss, David Benioff", "14+", 2011,
      "https://static.posters.cz/image/750/poster/game-of-thrones-juego-de-tronos-winter-is-coming-i18529.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1,
      Tipo.find_by_name("Thriller")],
     ["The Leftovers", "Damon Lindelof, Tom Perrotta", "16+", 2014,
      "https://d919ce141ef35c47fc40-b9166a60eccf0f83d2d9c63fa65b9129.ssl.cf5.rackcdn.com/images/211594.max-620x600.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1,
      Tipo.find_by_name("Thriller")],
     ["Breaking Bad", "Vince Gilligan", "14+", 2008,
      "http://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/breaking-bad-S5-400x600-compressedV1.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1,
      Tipo.find_by_name("Thriller")],
     ["Black Mirror", "Charlie Brooker", "16+", 2016,
      "https://fantopia.club/wp-content/uploads/2017/03/black-mirror.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin@uc.cl"),
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1,
      Tipo.find_by_name("Thriller")],
     ["True Detective", "Nic Pizzolatto", "Mature", 2014,
     "https://s-media-cache-ak0.pinimg.com/736x/3b/58/1d/3b581d4e1a84e409e1aaa1df1eb6428d.jpg",
-     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), User.find_by_email("admin1@uc.cl"),
+     DateTime.parse("09/01/2009 17:00"), DateTime.parse("09/01/2009 17:00"), 1,
      Tipo.find_by_name("Thriller")]
 ]
 
