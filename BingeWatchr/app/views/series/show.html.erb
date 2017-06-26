@@ -48,7 +48,25 @@
                 <%= submit_tag "Rate!", :name => nil %>
 
             <% end %>
+        <% end %>
 
+        <% fav = Favorite.find_by(user: @user, serie: @serie) %>
+        <% if fav %>
+            <%= form_tag '/favorites', :method => 'delete' do %>
+
+                <%= hidden_field_tag(:serie, @serie.id) %>
+                <%= hidden_field_tag(:user, @user.id) %>
+                <%= submit_tag "Favorito!", :name => nil %>
+
+            <% end %>
+        <% else %>
+            <%= form_tag '/favorites', :method => 'post' do %>
+
+                <%= hidden_field_tag(:serie, @serie.id) %>
+                <%= hidden_field_tag(:user, @user.id) %>
+                <%= submit_tag "No es Favorito", :name => nil %>
+
+            <% end %>
         <% end %>
 
     <% end %>

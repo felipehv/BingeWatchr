@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   post '/seen_capitulos' => 'seen_capitulos#create', as: :seen
   delete '/seen_capitulos' => 'seen_capitulos#destroy', as: :unseen
 
+  post '/favorites' => 'favorites#create', as: :fav
+  delete 'favorites' => 'favorites#destroy', as: :unfav
+
   get '/series/:id' => 'series#show', as: :tag
 
   get '/series/:id/capitulos' => 'capitulos#showsome', as: :show_some_capitulos
