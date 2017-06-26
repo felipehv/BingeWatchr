@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   post '/series' => 'series#create', as: :create_new_series
   post '/comments' => 'comments#create'
 
+
+  get 'posts' => 'posts#new', as: :new_post
+
   post '/rating_series' => 'rating_series#create', as: :create_rating
 
   post '/rating_capitulos' => 'rating_capitulos#create', as: :create_rating_capitulos
