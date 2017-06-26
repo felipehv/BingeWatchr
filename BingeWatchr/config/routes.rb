@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/series' => 'series#index', as: :lista_series
   post '/series' => 'series#create', as: :create_new_series
-  post '/comments' => 'comments#create' 
+  post '/comments' => 'comments#create'
 
   post '/rating_series' => 'rating_series#create', as: :create_rating
 
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/series/:id/capitulos' => 'capitulos#showsome'
 
   put '/capitulos/:id', to: 'capitulos#update'
+
+  get '/statistics', to: 'series#statistics'
 
   resources :posts
   # resources :users

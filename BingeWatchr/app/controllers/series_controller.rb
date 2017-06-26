@@ -14,11 +14,20 @@ class SeriesController < ApplicationController
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
 
-    @comments = Comment.where(series_id: @serie.id) 
+    @comments = Comment.where(series_id: @serie.id)
 
     @user = current_user
 
   end
+
+  # GET /series/statistics
+  def statistics
+    # Series mas rating
+    @mostrated = Serie.joins("INNER JOIN rating_series ON series.id = rating_series").all
+
+    # Series mas populares (favortios)
+  end
+
 
   # GET /series/new
   def new
