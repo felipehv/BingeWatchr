@@ -20,13 +20,16 @@ Rails.application.routes.draw do
 
   get '/series' => 'series#index', as: :lista_series
   post '/series' => 'series#create', as: :create_new_series
-  post '/comments' => 'comments#create' 
+  post '/comments' => 'comments#create'
 
   post '/rating_series' => 'rating_series#create', as: :create_rating
 
+  post '/rating_capitulos' => 'rating_capitulos#create', as: :create_rating_capitulos
+  get '/capitulos/:id' => 'rating_capitulos#show', as: :show_capitulo
+
   get '/series/:id' => 'series#show', as: :tag
 
-  get '/series/:id/capitulos' => 'capitulos#showsome'
+  get '/series/:id/capitulos' => 'capitulos#showsome', as: :show_some_capitulos
 
   put '/capitulos/:id', to: 'capitulos#update'
 

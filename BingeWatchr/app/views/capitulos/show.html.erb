@@ -13,11 +13,42 @@
 </p>
 
 <p>
-  <% for star in 1..@capitulo.rating %>
-      <%= image_tag 'https://image.flaticon.com/icons/png/128/60/60973.png' %>
-      <% end %>
 
-      </p>
+  <% if @user %>
+
+      <% rating = RatingCapitulo.find_by(user: @user, capitulo: @capitulo) %>
+
+      <% if rating %>
+          <% full = rating.value.floor%>
+          <% half = 0 %>
+          <% if rating.value - full > 0 %>
+              <% half = 1 %>
+          <% end %>
+          <% empty = 5 - full - half%>
+          <% half %>
+
+          <% (1..full).each do |i| %>
+              <%= image_tag('star-on.png') %>
+          <% end %>
+          <% (1..half).each do |i| %>
+              <%= image_tag('star-half.png') %>
+          <% end %>
+          <% (1..empty).each do |i| %>
+              <%= image_tag('star-off.png') %>
+          <% end %>
+      <% else %>
+
+          <%= form_tag '/rating_capitulos', :method => 'post' do %>
+
+              <%= number_field_tag :value, params[:value], in: 1..5, value: 1 %>
+              <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+              <%= hidden_field_tag(:user, @user.id) %>
+              <%= submit_tag "Rate!", :name => nil %>
+
+          <% end %>
+
+      <% end %>
+  <% end %>
 
 
 <p>
