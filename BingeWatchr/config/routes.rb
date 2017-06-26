@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   delete 'favorites' => 'favorites#destroy', as: :unfav
   get '/favorites' => 'favorites#index', as: :show_fav
 
+  post '/watch_laters' => 'watch_later#create', as: :wl
+  delete 'watch_laters' => 'watch_later#destroy', as: :unwl
+  get '/watch_later' => 'watch_later#index', as: :show_wl
+
 
   get '/series/:id' => 'series#show', as: :tag
 

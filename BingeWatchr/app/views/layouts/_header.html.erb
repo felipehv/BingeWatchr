@@ -10,8 +10,11 @@
     <li><a href='/series'>Series</a></li>
     <% if user_signed_in? %>
     <li><a href='/favorites'>Favorites</a></li>
+
     <li><a href='/statistics'>Estadisticas</a></li>
+    <li><a href='/watch_later'>Watch Later</a></li>
     <% end %>
+
 
   <% if user_signed_in? %>
     <% if current_page?('/profile') %>

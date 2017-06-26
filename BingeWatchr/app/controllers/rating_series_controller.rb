@@ -4,7 +4,7 @@ class RatingSeriesController < ApplicationController
   def create
     user = User.find(params[:user])
     serie = Serie.find(params[:serie])
-    @rating = RatingSerie.new(user: user, serie: serie, value: params[:value])
+    @rating = RatingSerie.new(user_id: params[:user], serie_id: params[:serie], value: params[:value])
     if @rating.save
       redirect_to tag_path(params[:serie])
     else

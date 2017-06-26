@@ -52,30 +52,60 @@
     </br>
     </br>
 
-      <% seen = SeenCapitulo.find_by(user: @user, capitulo: @capitulo) %>
-      <% if seen %>
-          <strong>Visto</strong>
+    <% seen = SeenCapitulo.find_by(user: @user, capitulo: @capitulo) %>
+    <% if seen %>
 
-         <div >
-           <%= form_tag '/seen_capitulos', :method => 'delete' do %>
-
-               <%= hidden_field_tag(:capitulo, @capitulo.id) %>
-               <%= hidden_field_tag(:user, @user.id) %>
-               <%= submit_tag "Marcar como No Visto", :name => nil %>
-
-           <% end %>
-         </div>
-
-      <%else%>
-          <strong>No Visto</strong>
-          <%= form_tag '/seen_capitulos', :method => 'post' do %>
+        <div >
+          <%= form_tag '/seen_capitulos', :method => 'delete' do %>
 
               <%= hidden_field_tag(:capitulo, @capitulo.id) %>
               <%= hidden_field_tag(:user, @user.id) %>
-              <%= submit_tag "Marcar como Visto", :name => nil %>
+              <%= submit_tag "Visto", :name => nil %>
 
           <% end %>
-      <% end %>
+        </div>
+
+    <%else%>
+        <%= form_tag '/seen_capitulos', :method => 'post' do %>
+
+            <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+            <%= hidden_field_tag(:user, @user.id) %>
+            <%= submit_tag "No Visto", :name => nil %>
+
+        <% end %>
+    <% end %>
+
+    </br>
+    </br>
+    </br>
+
+    <% wl = WatchLater.find_by(user: @user, capitulo: @capitulo) %>
+    <% if wl %>
+
+        <strong>Está en Watch Later</strong>
+
+        <div >
+          <%= form_tag '/watch_laters', :method => 'delete' do %>
+
+              <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+              <%= hidden_field_tag(:user, @user.id) %>
+              <%= submit_tag "Eliminar", :name => nil %>
+
+          <% end %>
+        </div>
+
+    <%else%>
+        <strong>No está en Watch Later</strong>
+
+
+        <%= form_tag '/watch_laters', :method => 'post' do %>
+
+            <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+            <%= hidden_field_tag(:user, @user.id) %>
+            <%= submit_tag "Agregar", :name => nil %>
+
+        <% end %>
+    <% end %>
   <% end %>
 
 </br>
