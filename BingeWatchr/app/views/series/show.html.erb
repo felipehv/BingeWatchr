@@ -19,7 +19,6 @@
     <% if @user %>
 
         <% rating = RatingSerie.find_by(user: @user, serie: @serie) %>
-
         <% if rating %>
             <% full = rating.value.floor%>
             <% half = 0 %>
@@ -51,7 +50,6 @@
             <% end %>
 
         <% end %>
-
 
     <% end %>
   </div>

@@ -12,12 +12,11 @@
   <%= @capitulo.description%>
 </p>
 
-<p>
+<br>
 
   <% if @user %>
 
       <% rating = RatingCapitulo.find_by(user: @user, capitulo: @capitulo) %>
-
       <% if rating %>
           <% full = rating.value.floor%>
           <% half = 0 %>
@@ -48,20 +47,44 @@
           <% end %>
 
       <% end %>
+
+    </br>
+    </br>
+    </br>
+
+      <% seen = SeenCapitulo.find_by(user: @user, capitulo: @capitulo) %>
+      <% if seen %>
+          <strong>Visto</strong>
+
+         <div >
+           <%= form_tag '/seen_capitulos', :method => 'delete' do %>
+
+               <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+               <%= hidden_field_tag(:user, @user.id) %>
+               <%= submit_tag "Marcar como No Visto", :name => nil %>
+
+           <% end %>
+         </div>
+
+      <%else%>
+          <strong>No Visto</strong>
+          <%= form_tag '/seen_capitulos', :method => 'post' do %>
+
+              <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+              <%= hidden_field_tag(:user, @user.id) %>
+              <%= submit_tag "Marcar como Visto", :name => nil %>
+
+          <% end %>
+      <% end %>
   <% end %>
 
+</br>
+</br>
 
-<p>
-  <% if @capitulo.seen then%>
-      <strong>Visto</strong>
-      <%= link_to 'Marcar como no visto', edit_capitulo_path(@capitulo) %> |
+<div style="margin: 0 0;">
+  <%= button_to 'Edit', edit_capitulo_path(@capitulo)%>
+</div>
 
-<% else %>
-      <strong>No visto</strong>
-      <%= link_to 'Marcar como visto', edit_capitulo_path(@capitulo) %> |
-
-<%end%>
-</p>
-
-<%= link_to 'Edit', edit_capitulo_path(@capitulo) %> |
-<%= link_to 'Back', capitulos_path %>
+<div style="margin: 0 30px;">
+  <%= button_to 'Back', capitulos_path %>
+</div>
