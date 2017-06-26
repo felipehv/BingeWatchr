@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
     @fav = Favorite.find_by(user: user, serie: serie)
     @fav.destroy
 
-    redirect_to tag_path(params[:capitulo])
+    redirect_to tag_path(params[:serie])
   end
 
 end
