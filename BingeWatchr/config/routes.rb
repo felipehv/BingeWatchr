@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   post '/favorites' => 'favorites#create', as: :fav
   delete 'favorites' => 'favorites#destroy', as: :unfav
+  get '/favorites' => 'favorites#index', as: :show_fav
+
 
   get '/series/:id' => 'series#show', as: :tag
 

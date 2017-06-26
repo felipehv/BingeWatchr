@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>  
+
+
+<head>
+  <h1>Series Favoritas</h1>
+</head>
+
+<body style="margin: 0px">
+
+  <div class="series">
+    <div class="container">
+      <div class="cards row">
+        <% @favorites.each do |fav| %>
+            <% series = fav.serie%>
+            <div class="card cola-xs-12" style="  margin: 0px">
+              <% if series.image != nil %>
+                <%= link_to image_tag(series.image, :style => "width: 100%"), series_path(series) %>
+              <% else %>
+                <%= link_to image_tag("/images/BW_placeholder.jpg", :style => "width: 100%"), series_path(series) %>
+              <% end %>
+              <h3><%= series.name %></h3>
+
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

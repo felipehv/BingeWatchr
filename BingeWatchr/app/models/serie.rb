@@ -1,5 +1,7 @@
 class Serie < ApplicationRecord
     has_many :capitulos
+    has_many :favorites
+
     def self.filter(search, tipo_id, series)
       results = series
       results = results.where('lower(name) LIKE ?', "%#{search}%".downcase) if search.present?
