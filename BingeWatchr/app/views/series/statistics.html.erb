@@ -2,16 +2,25 @@
 <h1> Top 5 series mejor rankeadas </h1>
 <% @series_mostrated.each do |s| %>
   <p>
-    <%= s.name %>
-    <%= s.rating / s.times_rated %>
+    <%= s.name %><br>
+    Rating promedio: <%= s.rating / s.times_rated %>
+  </p>
+<%end%>
+
+<h1> Top 5 capitulos mejor rankeados </h1>
+<% @capitulos_mostrated.each do |s| %>
+  <p>
+    Serie: <%= s.serie_name %><br>
+    Capitulo: <%= s.cap_name %><br>
+    <%= s.rating/s.times_rated %> veces vista.
   </p>
 <%end%>
 
 <h1> Top 5 series con mas favoritos </h1>
   <% @series_mostfavorited.each do |s| %>
     <p>
-      <%= s.name %>
-      <%= s.times %>
+      <%= s.name %><br>
+      Vista <%= s.times %> veces.
     </p>
 <%end%>
 
@@ -21,6 +30,6 @@
     <p>
       Serie: <%= s.serie_name %><br>
       Capitulo: <%= s.cap_name %><br>
-      <%= s.times %> veces vista.
+      Visto <%= s.times %> veces.
     </p>
 <%end%>
