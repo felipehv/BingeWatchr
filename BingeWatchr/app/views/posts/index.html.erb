@@ -1,6 +1,15 @@
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <body style="margin: 0px">
 <div class="container" >
+
+  <% if user_signed_in? %>
+      <% if current_user.admin %>
+          <div class="text-center">
+            <%= button_to 'New Post', new_post_path, :method => "get" %>
+          </div>
+          <% end %>
+
+  <% end %>
   
 
   <div class="row">
