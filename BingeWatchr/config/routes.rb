@@ -24,9 +24,14 @@ Rails.application.routes.draw do
 
   post '/rating_series' => 'rating_series#create', as: :create_rating
 
+  post '/rating_capitulos' => 'rating_capitulos#create', as: :create_rating_capitulos
+  get '/capitulos/:id' => 'rating_capitulos#show', as: :show_capitulo
+  post '/seen_capitulos' => 'seen_capitulos#create', as: :seen
+  delete '/seen_capitulos' => 'seen_capitulos#destroy', as: :unseen
+
   get '/series/:id' => 'series#show', as: :tag
 
-  get '/series/:id/capitulos' => 'capitulos#showsome'
+  get '/series/:id/capitulos' => 'capitulos#showsome', as: :show_some_capitulos
 
   put '/capitulos/:id', to: 'capitulos#update'
 

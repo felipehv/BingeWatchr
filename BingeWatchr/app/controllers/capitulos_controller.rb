@@ -10,11 +10,13 @@ class CapitulosController < ApplicationController
   # GET /capitulos/1
   # GET /capitulos/1.json
   def show
+    @user = current_user
   end
 
   def showsome
     @serie = Serie.find_by_id(params[:id])
     @capitulos = @serie.capitulos
+    @user = current_user.id
   end
 
   # GET /capitulos/new

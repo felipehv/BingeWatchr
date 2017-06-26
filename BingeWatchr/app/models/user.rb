@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :rating_series
   has_many :watch_laters
   has_many :favorites
+  has_many :rating_capitulos
+  has_many :seen_capitulos
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

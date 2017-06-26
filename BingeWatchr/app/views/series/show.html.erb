@@ -19,7 +19,6 @@
     <% if @user %>
 
         <% rating = RatingSerie.find_by(user: @user, serie: @serie) %>
-
         <% if rating %>
             <% full = rating.value.floor%>
             <% half = 0 %>
@@ -42,7 +41,8 @@
 
             <%= form_tag '/rating_series', :method => 'post' do %>
 
-                <%= number_field_tag :value, params[:value], in: 1..5, :style => "height: 35px; width: 35px; font-size: 100%" %>
+                <%= number_field_tag :value, params[:value], in: 1..5, :style => "height: 35px; width: 35px; font-size: 100%", value:1 %>
+
                 <%= hidden_field_tag(:serie, @serie.id) %>
                 <%= hidden_field_tag(:user, @user.id) %>
                 <%= submit_tag "Rate!", :name => nil %>
@@ -50,7 +50,6 @@
             <% end %>
 
         <% end %>
-
 
     <% end %>
   </div>
@@ -86,7 +85,7 @@
 
 <div class="text-center" style="display: flex;">
   <div style="margin: 0 0;">
-    <%= button_to 'Ver Capítulos', controller: "capitulos", action: "showsome", id: @serie %>
+    <%= button_to 'Ver Capítulos', show_some_capitulos_path(@serie), method: :get%>
   </div>
   <div style="margin: 0 30px;">
     <%= button_to 'Editar Serie', edit_series_path(@serie) %>
