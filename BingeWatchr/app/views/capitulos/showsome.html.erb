@@ -6,7 +6,10 @@
 
 <body style="margin: 0px">
 
-<%= link_to 'New Episode', new_capitulo_path %>
+</div>
+<div style="margin: 0 30px;">
+  <%= button_to 'New Episode', new_capitulo_path, method: :get %>
+</div>
 
 <div class="capitulos">
   <div class="container">
@@ -15,7 +18,10 @@
           <div class="card col-xs-12">
             <h1><%= episode.title %></h1>
             <p>Episodio <%= episode.episode%>, Temporada <%= episode.season%></p></br>
-            <%= link_to 'Learn More', capitulo_path(episode) %>
+
+            <div style="margin: 0 30px;">
+              <%= button_to 'Learn More', capitulo_path(episode), method: :get %>
+            </div>
 
           </div>
       <% end %>
