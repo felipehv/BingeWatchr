@@ -1,5 +1,5 @@
 
-<h1> Top 5 series mejor rankeadas </h1>
+<h3> Top 5 series mejor rankeadas </h3>
 <% @series_mostrated.each do |s| %>
   <p>
     <%= s.name %><br>
@@ -7,7 +7,7 @@
   </p>
 <%end%>
 
-<h1> Top 5 capitulos mejor rankeados </h1>
+<h3> Top 5 capitulos mejor rankeados </h3>
 <% @capitulos_mostrated.each do |s| %>
   <p>
     Serie: <%= s.serie_name %><br>
@@ -16,7 +16,7 @@
   </p>
 <%end%>
 
-<h1> Top 5 series con mas favoritos </h1>
+<h3> Top 5 series con mas favoritos </h3>
   <% @series_mostfavorited.each do |s| %>
     <p>
       <%= s.name %><br>
@@ -25,7 +25,7 @@
 <%end%>
 
 
-<h1> Top 5 capitulos mas vistos </h1>
+<h3> Top 5 capitulos mas vistos </h3>
   <% @capitulos_mostwatched.each do |s| %>
     <p>
       Serie: <%= s.serie_name %><br>
