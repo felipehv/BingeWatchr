@@ -72,7 +72,7 @@ Este cambiara a Es favorito una vez que se presione. Para revertirlo, apretar el
 * Al hacer click en el menú en la opción watch later, podrás ver todos los capítulos marcados para ver más tarde.
  
 ### Estadísticas ###
-*  Para saber sobre la popularidad de las series y capítulos, hacer click en statistics en el menú superior.
+*  Para saber sobre la popularidad de las series y capítulos, hacer click en Estadisticas en el menú superior.
  
 ### Configuración ###
 * En la opción de configuración podrás ver todas las cuentas asociadas, crear cuentas asociadas en el formulario de creación, modificar los datos de lacuenta haciendo click en Editar Cuenta.
