@@ -1,5 +1,12 @@
-<% @mostrated.each do |s| %>
+<% @series_mostrated.each do |s| %>
   <p>
-  <%= s.name %>
+    <%= s.name %>
+    <%= s.rating / s.times_rated %>
   </p>
+<%end%>
+  <% @series_mostfavorited.each do |s| %>
+    <p>
+      <%= s.name %>
+      <%= s.times %>
+    </p>
 <%end%>
