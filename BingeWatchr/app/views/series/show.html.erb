@@ -106,7 +106,7 @@
     <%= button_to 'Ver Capítulos', show_some_capitulos_path(@serie), method: :get%>
   </div>
   <div style="margin: 0 30px;">
-    <%= button_to 'Editar Serie', edit_series_path(@serie) %>
+    <%= button_to 'Editar Serie', edit_series_path(@serie), method: :get %>
   </div>
   <div >
     <%= button_to 'Eliminar Serie', @serie, method: :delete, data: { confirm: 'Are you sure?' } %>

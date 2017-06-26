@@ -1,11 +1,9 @@
 <p id="notice"><%= notice %></p>  
 
 
-<head>
-  <h1>Series Favoritas</h1>
-</head>
-
 <body style="margin: 0px">
+
+  <h1>Series Favoritas</h1>
 
   <div class="series">
     <div class="container">
@@ -25,4 +23,27 @@
       </div>
     </div>
   </div>
+
+  <h1>Capitulos Favoritos</h1>
+
+
+  <div class="capitulos">
+    <div class="container">
+      <div class="cards row">
+        <% @capitulos.each do |fav| %>
+            <% episode = fav.capitulo%>
+            <div class="card col-xs-12">
+              <strong><%= episode.title %>, from <%= episode.serie.name %></strong>
+              <strong>Episodio <%= episode.episode%>, Temporada <%= episode.season%></strong></br>
+
+              <div style="margin: 0 30px;">
+                <%= button_to 'Learn More', capitulo_path(episode) %>
+              </div>
+
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </body>

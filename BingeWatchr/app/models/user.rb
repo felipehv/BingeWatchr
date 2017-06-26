@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :rating_capitulos
   has_many :seen_capitulos
   has_many :favorites
+  has_many :favorite_capitulos
 
   def self.from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

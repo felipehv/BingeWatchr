@@ -74,6 +74,29 @@
 
         <% end %>
     <% end %>
+    <% fav = FavoriteCapitulo.find_by(user: @user, capitulo: @capitulo) %>
+    <% if fav %>
+
+        <div >
+          <%= form_tag '/favorite_capitulos', :method => 'delete' do %>
+
+              <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+              <%= hidden_field_tag(:user, @user.id) %>
+              <%= submit_tag "Favorito!", :name => nil %>
+
+          <% end %>
+        </div>
+
+    <%else%>
+
+        <%= form_tag '/favorite_capitulos', :method => 'post' do %>
+
+            <%= hidden_field_tag(:capitulo, @capitulo.id) %>
+            <%= hidden_field_tag(:user, @user.id) %>
+            <%= submit_tag "No es Favorito", :name => nil %>
+
+        <% end %>
+    <% end %>
 
     </br>
     </br>
