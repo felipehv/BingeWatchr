@@ -1,5 +1,26 @@
-<% @mostrated.each do |s| %>
+
+<h1> Top 5 series mejor rankeadas </h1>
+<% @series_mostrated.each do |s| %>
   <p>
-  <%= s.name %>
+    <%= s.name %>
+    <%= s.rating / s.times_rated %>
   </p>
+<%end%>
+
+<h1> Top 5 series con mas favoritos </h1>
+  <% @series_mostfavorited.each do |s| %>
+    <p>
+      <%= s.name %>
+      <%= s.times %>
+    </p>
+<%end%>
+
+
+<h1> Top 5 capitulos mas vistos </h1>
+  <% @capitulos_mostwatched.each do |s| %>
+    <p>
+      Serie: <%= s.serie_name %><br>
+      Capitulo: <%= s.cap_name %><br>
+      <%= s.times %> veces vista.
+    </p>
 <%end%>

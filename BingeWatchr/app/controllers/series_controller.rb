@@ -40,12 +40,19 @@ class SeriesController < ApplicationController
 
   end
 
-  # GET /series/statistics
+  # GET /statistics
   def statistics
     # Series mas rating
-    @mostrated = Serie.joins("INNER JOIN rating_series ON series.id = rating_series").all
-
+    @series_mostrated = Serie.joins("INNER JOIN rating_series ON series.id = rating_series.serie_id").distinct.select("name, series.id, sum(rating_series.value) as rating, count(rating_series.*) as times_rated").group("series.id")
     # Series mas populares (favortios)
+    @series_mostfavorited = Serie.joins("INNER JOIN favorites ON series.id = favorites.serie_id").distinct.select("series.id, name, count(favorites.*) as times").group("series.id").order("times DESC")
+
+    # Capitulos mas vistos
+    @capitulos_mostwatched = Capitulo.joins(:serie, :seen_capitulos)
+    .distinct
+    .select("series.name as serie_name, capitulos.title as cap_name, capitulos.id, count(seen_capitulos.*) as times")
+    .group("capitulos.id, series.name").order("times DESC")
+
   end
 
 
