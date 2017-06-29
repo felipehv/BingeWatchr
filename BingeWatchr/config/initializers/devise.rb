@@ -275,7 +275,8 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   if Rails.env.production?
-    config.omniauth :facebook, '', '', callback_url: 'http://bingewatchr.herokuapp.com/users/auth/facebook/callback'
+    config.omniauth :facebook, '1203647653078294', '86929978b19d7fa8e947e6033423998a', callback_url: 'http://bingewatchr.herokuapp.com/users/auth/facebook/callback'
+  
   else
     config.omniauth :facebook, '1203647653078294', '86929978b19d7fa8e947e6033423998a', callback_url: 'http://localhost:3000/users/auth/facebook/callback'
   end
