@@ -13,18 +13,19 @@ class SeriesController < ApplicationController
         @series = Serie.where(user_id: current_user.id)
         @series = @series + Serie.where(user_id: current_user.parent_id)
         @admins.each do |adm|
-          @series = @series + Serie.where(user_id: adm.id)
+          @series = @series.or(Serie.where(:user_id => adm.id))
         end
       end
     else
       @admins = User.where(:admin => true)
       @series = Serie.where(user_id: -1)
       @admins.each do |adm|
-        @series = @series + Serie.where(:user_id => adm.id)
+        @series = @series.or(Serie.where(:user_id => adm.id))
       end
     end
     unless @series.empty?
-      @series = Serie.filter(params[:search],params[:tipo_id], @series)
+      @series = @series.where('lower(name) LIKE ?', "%#"+params[:search]+"%".downcase) if params[:search].present?
+      @series = @series.where("tipo_id = ?", :tipo_id) if params[:tipo_id].present?
     end
   end
 
